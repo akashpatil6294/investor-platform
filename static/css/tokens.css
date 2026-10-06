@@ -1,0 +1,2 @@
+:root{color-scheme:light;--bg:#f5f4f0;--surface:#fffefa;--panel:#eeede8;--text:#232826;--muted:#626862;--line:#d5d8d0;--accent:#325e51;--accent-soft:#e6ede5;--positive:#22603e;--negative:#a33c37;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s6:24px;--s8:32px;--s12:48px;--radius:6px;--ui:"Inter Tight","Segoe UI",sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+[data-theme=dark]{color-scheme:dark;--bg:#1c201e;--surface:#232825;--panel:#292f2b;--text:#eceee8;--muted:#a8b1a9;--line:#414941;--accent:#a8c7b5;--accent-soft:#304438;--positive:#93d6aa;--negative:#f2a09a}

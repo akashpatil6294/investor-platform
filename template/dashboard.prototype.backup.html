@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI-Powered Investor Intelligence Platform</title>
+<style>
+  :root {
+    --bg:            #0a0e1a;
+    --panel:         #0f1626;
+    --panel-hover:   #131c33;
+    --card:          #131c33;
+    --card-border:   #1e2a4a;
+    --card-hover:    #162040;
+    --text:          #e8eef9;
+    --text-muted:    #7c8aa5;
+    --text-dim:      #4d5a78;
+    --cyan:          #22d3ee;
+    --purple:        #a78bfa;
+    --green:         #10b981;
+    --red:           #ef4444;
+    --amber:         #f59e0b;
+    --blue:          #3b82f6;
+    --radius:        12px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ------------------------------------------------------ */
+  /* LAYOUT                                                 */
+  /* ------------------------------------------------------ */
+
+  .app {
+    display: grid;
+    grid-template-columns: 280px 1fr 380px;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .sidebar-left {
+    background: var(--panel);
+    border-right: 1px solid var(--card-border);
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .main {
+    padding: 28px 32px;
+    overflow-y: auto;
+  }
+
+  .sidebar-right {
+    background: var(--panel);
+    border-left: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ------------------------------------------------------ */
+  /* LOGO                                                   */
+  /* ------------------------------------------------------ */
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* ------------------------------------------------------ */
+  /* SIDEBAR CARDS                                          */
+  /* ------------------------------------------------------ */
+
+  .side-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .side-card h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .side-card .sub {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Ingest drop zone */
+  .drop-zone {
+    border: 1.5px dashed var(--card-border);
+    border-radius: 8px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .drop-zone:hover {
+    border-color: var(--cyan);
+    background: rgba(34, 211, 238, 0.04);
+  }
+
+  .drop-zone svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .drop-zone .label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .drop-zone .hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* Progress bar (upload) */
+  .progress-wrap {
+    margin-top: 10px;
+    display: none;
+  }
+
+  .progress-wrap.active { display: block; }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--card-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    width: 45%;
+    transition: width 0.3s;
+  }
+
+  /* Coverage Universe */
+  .coverage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .coverage-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  .coverage-item:hover {
+    background: var(--card-hover);
+    border-color: var(--card-border);
+  }
+
+  .coverage-item.active {
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.35);
+  }
+
+  .company-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .company-badge.ap { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+  .company-badge.ms { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+  .company-badge.default { background: linear-gradient(135deg, #64748b, #475569); }
+
+  .coverage-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .coverage-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .coverage-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  /* ------------------------------------------------------ */
+  /* MAIN HEADER                                            */
+  /* ------------------------------------------------------ */
+
+  .main-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .main-header h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .main-header .tagline {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* ------------------------------------------------------ */
+  /* KPI GRID                                               */
+  /* ------------------------------------------------------ */
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 16px;
+    transition: border-color 0.15s;
+  }
+
+  .kpi-card:hover { border-color: rgba(34, 211, 238, 0.25); }
+
+  .kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+
+  .kpi-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .kpi-subtitle {
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+
+  .kpi-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .kpi-icon svg { width: 14px; height: 14px; }
+
+  .kpi-icon.cyan   { background: rgba(34, 211, 238, 0.12); color: var(--cyan); }
+  .kpi-icon.green  { background: rgba(16, 185, 129, 0.12); color: var(--green); }
+  .kpi-icon.amber  { background: rgba(245, 158, 11, 0.12); color: var(--amber); }
+  .kpi-icon.purple { background: rgba(167, 139, 250, 0.12); color: var(--purple); }
+  .kpi-icon.red    { background: rgba(239, 68, 68, 0.12); color: var(--red); }
+
+  .kpi-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .kpi-row:last-child { margin-bottom: 0; }
+
+  .kpi-row-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .kpi-row-badge.ap { background: #6366f1; }
+  .kpi-row-badge.ms { background: #06b6d4; }
+  .kpi-row-badge.default { background: #475569; }
+
+  .kpi-row-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    width: 130px;
+    flex-shrink: 0;
+  }
+
+  .kpi-row-label strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .kpi-row-value {
+    flex: 1;
+    text-align: right;
+    font-weight: 600;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .kpi-row-bar {
+    grid-column: 1 / -1;
+    height: 3px;
+    background: var(--card-border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .kpi-row-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .kpi-row-bar-fill.cyan   { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+  .kpi-row-bar-fill.green  { background: linear-gradient(90deg, #059669, var(--green)); }
+  .kpi-row-bar-fill.amber  { background: linear-gradient(90deg, #d97706, var(--amber)); }
+  .kpi-row-bar-fill.purple { background: linear-gradient(90deg, #7c3aed, var(--purple)); }
+  .kpi-row-bar-fill.red    { background: linear-gradient(90deg, #dc2626, var(--red)); }
+
+  /* ------------------------------------------------------ */
+  /* QUALITATIVE SECTION                                    */
+  /* ------------------------------------------------------ */
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .section-title svg {
+    width: 16px;
+    height: 16px;
+    color: var(--cyan);
+  }
+
+  .section-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-controls label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .company-select {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    min-width: 130px;
+  }
+
+  .company-select:focus { border-color: var(--cyan); }
+
+  .qual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .qual-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+
+  .qual-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .qual-card h3 svg { width: 14px; height: 14px; }
+
+  .qual-card.growth h3 { color: var(--green); }
+  .qual-card.risk   h3 { color: var(--red); }
+
+  .qual-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .qual-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .qual-list li:last-child { border-bottom: none; }
+
+  .qual-list .bullet {
+    flex-shrink: 0;
+    margin-top: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .qual-card.growth .bullet { background: var(--green); }
+  .qual-card.risk .bullet   { background: var(--red); }
+
+  .qual-empty {
+    color: var(--text-dim);
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  /* ------------------------------------------------------ */
+  /* CHAT PANEL                                             */
+  /* ------------------------------------------------------ */
+
+  .chat-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chat-header-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .chat-header-icon svg { width: 16px; height: 16px; color: white; }
+
+  .chat-header-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .chat-header-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 6px; }
+  .chat-messages::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 3px;
+  }
+
+  .chat-msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .chat-msg.user { flex-direction: row-reverse; }
+
+  .chat-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .chat-avatar.ai {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white;
+  }
+
+  .chat-avatar.user {
+    background: var(--card-border);
+    color: var(--text-muted);
+  }
+
+  .chat-bubble {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px 13px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .chat-msg.user .chat-bubble {
+    background: rgba(59, 130, 246, 0.14);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .chat-bubble .meta {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chat-loading {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .chat-loading span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    animation: chat-bounce 1.4s infinite ease-in-out both;
+  }
+
+  .chat-loading span:nth-child(1) { animation-delay: -0.32s; }
+  .chat-loading span:nth-child(2) { animation-delay: -0.16s; }
+
+  @keyframes chat-bounce {
+    0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+    40%           { transform: scale(1);   opacity: 1; }
+  }
+
+  .chat-input-row {
+    padding: 14px 16px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    gap: 8px;
+  }
+
+  .chat-input {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    min-height: 40px;
+    max-height: 120px;
+  }
+
+  .chat-input:focus { border-color: var(--cyan); }
+
+  .chat-input::placeholder { color: var(--text-dim); }
+
+  .chat-send {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+  }
+
+  .chat-send:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .chat-send svg { width: 16px; height: 16px; color: white; }
+
+  /* ------------------------------------------------------ */
+  /* UTILITIES                                              */
+  /* ------------------------------------------------------ */
+
+  .hidden { display: none !important; }
+
+  .error {
+    color: var(--red);
+    font-size: 12px;
+    padding: 8px 12px;
+    background: rgba(239, 68, 68, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  /* Scrollbar for sidebars */
+  .sidebar-left::-webkit-scrollbar,
+  .main::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar-left::-webkit-scrollbar-thumb,
+  .main::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 3px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1280px) {
+    .app { grid-template-columns: 240px 1fr 340px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 960px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar-left, .sidebar-right { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ====================================================== -->
+  <!-- LEFT SIDEBAR                                            -->
+  <!-- ====================================================== -->
+  <aside class="sidebar-left">
+
+    <div class="logo">
+      <div class="logo-mark">Ai</div>
+      <div class="logo-text">AaiTech</div>
+    </div>
+
+    <!-- Ingest Report -->
+    <div class="side-card">
+      <div class="drop-zone" id="dropZone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <div class="label">Ingest Report</div>
+        <div class="hint">Drag &amp; drop or browse PDF</div>
+        <input type="file" id="fileInput" accept="application/pdf" hidden />
+      </div>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-label">
+          <span id="progressText">uploading report…</span>
+          <span id="progressPct">45%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coverage Universe -->
+    <div class="side-card">
+      <h3>Coverage Universe</h3>
+      <div class="sub">Companies with ingested data</div>
+      <div class="coverage-list" id="coverageList">
+        <div class="qual-empty">Loading…</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ====================================================== -->
+  <!-- MAIN CONTENT                                            -->
+  <!-- ====================================================== -->
+  <main class="main">
+
+    <div class="main-header">
+      <h1>AI-Powered Investor Intelligence Platform</h1>
+      <div class="tagline">Real-time corporate insights and KPI extraction</div>
+    </div>
+
+    <!-- KPI GRID -->
+    <div class="kpi-grid" id="kpiGrid">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- QUALITATIVE SECTION -->
+    <div class="section-header">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        Qualitative Intelligence Deep-Dive
+      </div>
+      <div class="section-controls">
+        <label for="companySelect">Inspect Company</label>
+        <select class="company-select" id="companySelect"></select>
+      </div>
+    </div>
+
+    <div class="qual-grid">
+      <div class="qual-card growth">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+          Top Growth Drivers
+        </h3>
+        <ul class="qual-list" id="growthList">
+          <li class="qual-empty">Select a company to view insights.</li>
+        </ul>
+      </div>
+
+      <div class="qual-card risk">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Top Risk Factors
+        </h3>
+        <ul class="qual-list" id="riskList">
+          <li class="qual-empty">Select a company to view insights.</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ====================================================== -->
+  <!-- RIGHT SIDEBAR (CHAT)                                    -->
+  <!-- ====================================================== -->
+  <aside class="sidebar-right">
+
+    <div class="chat-header">
+      <div class="chat-header-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="chat-header-title">AI Analyst</div>
+        <div class="chat-header-sub">Ask about your financial data</div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg">
+        <div class="chat-avatar ai">AI</div>
+        <div class="chat-bubble">
+          Hello! I'm your AI Financial Analyst. Ask me anything about the
+          ingested company reports — revenue trends, risk analysis, growth
+          drivers, and more.
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <textarea
+        class="chat-input"
+        id="chatInput"
+        rows="1"
+        placeholder="Ask about the ingested companies…"
+      ></textarea>
+      <button class="chat-send" id="chatSend">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+
+  </aside>
+
+</div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+
+const API = "";  // same origin
+
+const state = {
+  companies: [],         // [{ company, year, metrics }]
+  activeCompany: null,
+  activeYear: null,
+  chatBusy: false,
+};
+
+// ============================================================
+// HELPERS
+// ============================================================
+
+function fmtNum(n) {
+  if (n === null || n === undefined || n === "") return "—";
+  const num = typeof n === "number" ? n : Number(String(n).replace(/[,$]/g, ""));
+  if (!isFinite(num)) return String(n);
+  return num.toLocaleString("en-US");
+}
+
+function companyInitials(name) {
+  if (!name) return "??";
+  return name.slice(0, 2).toUpperCase();
+}
+
+function badgeClass(name) {
+  const n = (name || "").toLowerCase();
+  if (n.startsWith("apple")) return "ap";
+  if (n.startsWith("microsoft")) return "ms";
+  return "default";
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;",
+    '"': "&quot;", "'": "&#39;"
+  })[ch]);
+}
+
+// ============================================================
+// METRICS LOADING
+// ============================================================
+
+async function loadAllMetrics() {
+  try {
+    const res = await fetch(`${API}/api/metrics`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const payload = await res.json();
+
+    // Supports both { data: [...] } and raw array shapes.
+    const rows = Array.isArray(payload)
+      ? payload
+      : (payload.data || payload.metrics || []);
+
+    state.companies = rows;
+    return rows;
+  } catch (err) {
+    console.error("Failed to load metrics:", err);
+    return [];
+  }
+}
+
+// Group rows by company → take latest year per company
+function groupByCompany(rows) {
+  const byCompany = new Map();
+
+  for (const r of rows) {
+    const company = r.company || r.Company;
+    const year = r.year || r.Year;
+    if (!company || year === undefined) continue;
+
+    if (!byCompany.has(company)) byCompany.set(company, []);
+    byCompany.get(company).push(r);
+  }
+
+  // Sort years desc, keep latest
+  const result = [];
+  for (const [company, list] of byCompany.entries()) {
+    list.sort((a, b) => (b.year || b.Year) - (a.year || a.Year));
+    result.push(list[0]);
+  }
+
+  result.sort((a, b) =>
+    (a.company || a.Company).localeCompare(b.company || b.Company)
+  );
+
+  return result;
+}
+
+// ============================================================
+// COVERAGE UNIVERSE (replaces YouTube card)
+// ============================================================
+
+function renderCoverage(latestPerCompany) {
+  const el = document.getElementById("coverageList");
+
+  if (!latestPerCompany.length) {
+    el.innerHTML = `<div class="qual-empty">No companies ingested yet.</div>`;
+    return;
+  }
+
+  el.innerHTML = latestPerCompany.map(row => {
+    const company = row.company || row.Company;
+    const year = row.year || row.Year;
+    const revenue = row.revenue ?? row.Revenue ?? null;
+    const active = state.activeCompany === company ? " active" : "";
+
+    return `
+      <div class="coverage-item${active}" data-company="${escapeHtml(company)}">
+        <div class="company-badge ${badgeClass(company)}">
+          ${escapeHtml(companyInitials(company))}
+        </div>
+        <div class="coverage-info">
+          <div class="coverage-name">${escapeHtml(company)}</div>
+          <div class="coverage-meta">
+            FY ${year} · Revenue ${fmtNum(revenue)}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Click handlers
+  el.querySelectorAll(".coverage-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const company = item.dataset.company;
+      selectCompany(company);
+    });
+  });
+}
+
+// ============================================================
+// KPI CARDS
+// ============================================================
+
+const KPI_DEFS = [
+  { key: "revenue",           label: "Revenue",            sub: "Total company revenue",             icon: "cyan",   field: "Revenue" },
+  { key: "net_income",        label: "Net Income",         sub: "Net profitability after expenses",  icon: "green",  field: "Net Income" },
+  { key: "operating_income",  label: "Operating Income",   sub: "Earnings from operations",          icon: "amber",  field: "Operating Income" },
+  { key: "cash_flow",         label: "Operating Cash Flow",sub: "Cash flow from operations",         icon: "purple", field: "Cash Flow from Operating Activities" },
+  { key: "total_assets",      label: "Total Assets",       sub: "Total economic resources",          icon: "cyan",   field: "Total Assets" },
+  { key: "total_liabilities", label: "Total Liabilities",  sub: "Total outstanding obligations",     icon: "red",    field: "Total Liabilities" },
+];
+
+// SVG icons per KPI
+const KPI_ICONS = {
+  cyan:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  green:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+  amber:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  purple: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-2-2-2 2"/></svg>`,
+  red:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+};
+
+function pickMetricValue(row, field) {
+  // Try snake_case, PascalCase, and nested `data` shapes
+  const snake = field.toLowerCase().replace(/ /g, "_")
+    .replace("cash_flow_from_operating_activities", "cash_flow");
+  return row[snake] ?? row[field] ?? null;
+}
+
+function renderKpiGrid(latestPerCompany) {
+  const grid = document.getElementById("kpiGrid");
+
+  if (!latestPerCompany.length) {
+    grid.innerHTML = `<div class="error">No metrics available.</div>`;
+    return;
+  }
+
+  // Cap to 3 companies for a clean 2-row grid (Apple, Microsoft, ...)
+  const top = latestPerCompany.slice(0, 3);
+
+  grid.innerHTML = KPI_DEFS.map(def => {
+    const values = top.map(r => Number(pickMetricValue(r, def.field)) || 0);
+    const maxVal = Math.max(...values, 1);
+
+    const rows = top.map((r, i) => {
+      const company = r.company || r.Company;
+      const year    = r.year    || r.Year;
+      const value   = values[i];
+      const pct     = Math.min(100, Math.round((value / maxVal) * 100));
+      const cls     = badgeClass(company);
+
+      return `
+        <div class="kpi-row">
+          <div class="kpi-row-badge ${cls}">
+            ${escapeHtml(companyInitials(company))}
+          </div>
+          <div class="kpi-row-label">
+            <strong>${escapeHtml(company)}</strong> (${year})
+          </div>
+          <div class="kpi-row-value">${fmtNum(value)}</div>
+          <div class="kpi-row-bar">
+            <div class="kpi-row-bar-fill ${def.icon}"
+                 style="width:${pct}%"></div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    return `
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <div>
+            <div class="kpi-title">${def.label}</div>
+            <div class="kpi-subtitle">${def.sub}</div>
+          </div>
+          <div class="kpi-icon ${def.icon}">${KPI_ICONS[def.icon]}</div>
+        </div>
+        ${rows}
+      </div>
+    `;
+  }).join("");
+}
+
+// ============================================================
+// COMPANY SELECTOR (dropdown in Qualitative section)
+// ============================================================
+
+function renderCompanySelect(latestPerCompany) {
+  const sel = document.getElementById("companySelect");
+
+  sel.innerHTML = latestPerCompany.map(r => {
+    const company = r.company || r.Company;
+    return `<option value="${escapeHtml(company)}">
+      ${escapeHtml(company)}
+    </option>`;
+  }).join("");
+
+  if (!state.activeCompany && latestPerCompany.length) {
+    state.activeCompany =
+      latestPerCompany[0].company || latestPerCompany[0].Company;
+  }
+
+  sel.value = state.activeCompany;
+
+  sel.onchange = (e) => selectCompany(e.target.value);
+}
+
+// ============================================================
+// QUALITATIVE DEEP-DIVE
+// ============================================================
+
+function renderQualitative(company) {
+  const row = state.companies.find(
+    r => (r.company || r.Company) === company
+  );
+
+  const growthList = document.getElementById("growthList");
+  const riskList   = document.getElementById("riskList");
+
+  if (!row) {
+    growthList.innerHTML = `<li class="qual-empty">No data.</li>`;
+    riskList.innerHTML   = `<li class="qual-empty">No data.</li>`;
+    return;
+  }
+
+  const growth = row.growth_drivers || row["Top Growth Drivers"] || null;
+  const risk   = row.risk_factors   || row["Top Risk Factors"]   || null;
+
+  const toItems = (v) => {
+    if (!v) return [];
+    if (Array.isArray(v)) return v;
+    if (typeof v === "string") {
+      return v.split(/\r?\n|;|•/).map(s => s.trim()).filter(Boolean);
+    }
+    return [];
+  };
+
+  const renderItems = (items) => {
+    if (!items.length) return `<li class="qual-empty">No items recorded.</li>`;
+    return items.map(t => `
+      <li>
+        <span class="bullet"></span>
+        <span>${escapeHtml(t)}</span>
+      </li>
+    `).join("");
+  };
+
+  growthList.innerHTML = renderItems(toItems(growth));
+  riskList.innerHTML   = renderItems(toItems(risk));
+}
+
+// ============================================================
+// COMPANY SELECTION
+// ============================================================
+
+function selectCompany(company) {
+  state.activeCompany = company;
+
+  // Sync UI
+  document.querySelectorAll(".coverage-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.company === company);
+  });
+
+  const sel = document.getElementById("companySelect");
+  if (sel.value !== company) sel.value = company;
+
+  renderQualitative(company);
+}
+
+// ============================================================
+// CHAT
+// ============================================================
+
+function appendChatMessage(role, text, meta = null) {
+  const wrap = document.getElementById("chatMessages");
+  const div = document.createElement("div");
+  div.className = `chat-msg ${role}`;
+
+  const avatarClass = role === "user" ? "user" : "ai";
+  const avatarText  = role === "user" ? "You" : "AI";
+
+  const metaHtml = meta
+    ? `<div class="meta">${escapeHtml(meta)}</div>`
+    : "";
+
+  div.innerHTML = `
+    <div class="chat-avatar ${avatarClass}">${avatarText}</div>
+    <div class="chat-bubble">${escapeHtml(text)}${metaHtml}</div>
+  `;
+
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function appendChatLoading() {
+  const wrap = document.getElementById("chatMessages");
+  const div = document.createElement("div");
+  div.className = "chat-msg";
+  div.id = "chatLoadingIndicator";
+  div.innerHTML = `
+    <div class="chat-avatar ai">AI</div>
+    <div class="chat-bubble">
+      <div class="chat-loading"><span></span><span></span><span></span></div>
+    </div>
+  `;
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function removeChatLoading() {
+  const el = document.getElementById("chatLoadingIndicator");
+  if (el) el.remove();
+}
+
+async function sendChat() {
+  if (state.chatBusy) return;
+
+  const input = document.getElementById("chatInput");
+  const question = input.value.trim();
+  if (!question) return;
+
+  appendChatMessage("user", question);
+  input.value = "";
+  input.style.height = "auto";
+
+  state.chatBusy = true;
+  document.getElementById("chatSend").disabled = true;
+  appendChatLoading();
+
+  // Find the active company/year for scope
+  const activeRow = state.companies.find(
+    r => (r.company || r.Company) === state.activeCompany
+  );
+  const company = state.activeCompany;
+  const year = activeRow ? (activeRow.year || activeRow.Year) : null;
+
+  try {
+    const res = await fetch(`${API}/api/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, company, year }),
+    });
+
+    const data = await res.json();
+    removeChatLoading();
+
+    if (data.success) {
+      const meta = `${data.model_used || "groq"} · ${data.chunks_used ?? 0} chunks`;
+      appendChatMessage("ai", data.answer || "(no answer)", meta);
+    } else {
+      appendChatMessage("ai", `Error: ${data.detail || "unknown"}`);
+    }
+  } catch (err) {
+    removeChatLoading();
+    appendChatMessage("ai", `Network error: ${err.message}`);
+  } finally {
+    state.chatBusy = false;
+    document.getElementById("chatSend").disabled = false;
+  }
+}
+
+// ============================================================
+// INGEST DROP ZONE (visual only for now)
+// ============================================================
+
+function wireDropZone() {
+  const zone   = document.getElementById("dropZone");
+  const input  = document.getElementById("fileInput");
+  const wrap   = document.getElementById("progressWrap");
+  const fill   = document.getElementById("progressFill");
+  const text   = document.getElementById("progressText");
+  const pct    = document.getElementById("progressPct");
+
+  zone.addEventListener("click", () => input.click());
+
+  zone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    zone.style.borderColor = "var(--cyan)";
+  });
+
+  zone.addEventListener("dragleave", () => {
+    zone.style.borderColor = "var(--card-border)";
+  });
+
+  zone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    zone.style.borderColor = "var(--card-border)";
+    if (e.dataTransfer.files.length) simulateUpload(e.dataTransfer.files[0]);
+  });
+
+  input.addEventListener("change", (e) => {
+    if (e.target.files.length) simulateUpload(e.target.files[0]);
+  });
+
+  function simulateUpload(file) {
+    wrap.classList.add("active");
+    text.textContent = `uploading ${file.name}…`;
+
+    let p = 0;
+    const iv = setInterval(() => {
+      p += Math.random() * 12 + 4;
+      if (p >= 100) {
+        p = 100;
+        clearInterval(iv);
+        text.textContent = "processing…";
+        setTimeout(() => {
+          wrap.classList.remove("active");
+          fill.style.width = "0%";
+          alert(
+            "Upload wired to UI. Connect POST /api/upload on the " +
+            "backend to trigger the full ingestion pipeline."
+          );
+        }, 700);
+      }
+      fill.style.width = p + "%";
+      pct.textContent = Math.round(p) + "%";
+    }, 220);
+  }
+}
+
+// ============================================================
+// BOOTSTRAP
+// ============================================================
+
+async function init() {
+  const rows = await loadAllMetrics();
+  const latest = groupByCompany(rows);
+
+  state.companies = rows;
+
+  if (latest.length) {
+    state.activeCompany = latest[0].company || latest[0].Company;
+  }
+
+  renderCoverage(latest);
+  renderKpiGrid(latest);
+  renderCompanySelect(latest);
+
+  if (state.activeCompany) {
+    selectCompany(state.activeCompany);
+  }
+
+  wireDropZone();
+
+  // Chat send
+  const sendBtn = document.getElementById("chatSend");
+  const chatInput = document.getElementById("chatInput");
+
+  sendBtn.addEventListener("click", sendChat);
+
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendChat();
+    }
+  });
+
+  // Auto-grow textarea
+  chatInput.addEventListener("input", () => {
+    chatInput.style.height = "auto";
+    chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + "px";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+
+</body>
+</html>

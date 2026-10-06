@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investor Platform · Annual report research</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/css/dashboard.css?v=2"></head>
+<body><a class="skip-link" href="#main">Skip to research</a>
+<header class="mobile-head"><button id="menuToggle" aria-expanded="false" aria-controls="sidebar">☰ Companies</button><span>Investor Platform</span></header>
+<div class="app">
+<aside class="sidebar" id="sidebar" aria-label="Coverage and settings">
+<a class="brand" href="/">IP<span>Investor<br>Platform</span></a>
+<p class="eyebrow">Research workspace</p><h2>Coverage</h2><p class="muted">Annual reports, in perspective.</p>
+<nav id="coverageList" aria-label="Companies"><div class="skeleton">Loading companies…</div></nav>
+<div class="side-bottom"><label class="upload-label" for="fileInput">＋ Add annual report</label><input id="fileInput" type="file" accept="application/pdf" class="sr-only">
+<p class="muted small">PDF · up to 25 MB<br>Filename: YYYY_Company.pdf</p>
+<progress id="uploadProgress" max="100" value="0" hidden aria-label="Upload progress"></progress><div id="ingestLog" class="small" aria-live="polite"></div>
+<button id="headerStatus" class="status" title="Refresh dependency status"><span id="headerStatusText" aria-live="polite">Warming up</span></button>
+<button id="themeToggle" aria-label="Toggle light and dark theme">Switch to dark</button></div></aside>
+<main id="main" tabindex="-1">
+<header class="page-head"><div><p class="eyebrow">The annual report desk</p><h1>Numbers. Context.<br>A clearer view.</h1><p class="muted">Compare reported results. Trace the evidence.</p></div><button id="commandOpen" title="Ctrl+K">Find / ask <kbd>⌘ K</kbd></button></header>
+<section aria-labelledby="comparisonTitle"><div class="section-head"><div><h2 id="comparisonTitle">Company comparison</h2><p class="muted small">Select two to four companies in the coverage list.</p></div><div class="controls"><label for="yearSelect">Fiscal year</label><select id="yearSelect"><option>2024</option></select><button id="exportCsv">Export CSV</button></div></div>
+<div id="dataError" role="alert" hidden></div><div class="table-scroll" id="comparison"><div class="skeleton table-skeleton">Loading reported financials…</div></div>
+<p id="dataFootnote" class="footnote">FY2024, USD millions, source: annual report. Ratios are derived.</p></section>
+<section class="chart-section" aria-labelledby="chartTitle"><div class="section-head"><div><p class="eyebrow">A common scale</p><h2 id="chartTitle">Revenue comparison</h2></div><div class="controls"><label class="sr-only" for="metricSelect">Chart metric</label><select id="metricSelect"></select><button id="exportPng">Save PNG</button></div></div><div id="chart" aria-live="polite"></div><p id="chartNote" class="muted small"></p><button id="compareTakeaway">Explain this comparison</button></section>
+<section id="companyDetail" aria-labelledby="detailTitle"><div class="section-head"><div><p class="eyebrow">Company notebook</p><h2 id="detailTitle">Select a company</h2></div><div class="controls"><label class="sr-only" for="companySelect">Inspect company</label><select id="companySelect"></select><button id="printSummary">Print summary</button></div></div><div id="ratioGrid" class="ratio-grid"></div>
+<div class="insights-grid"><div><h3>Growth drivers</h3><div id="growthList" class="insight-list">Choose a company.</div></div><div><h3>Risks to watch</h3><div id="riskList" class="insight-list">Choose a company.</div></div></div><p id="insightStatus" class="muted small"></p><form id="noteForm" class="notebook"><div class="section-head"><h3>Private note</h3><label><input id="pinCompany" type="checkbox"> Pin company</label></div><label class="sr-only" for="companyNote">Private company note</label><textarea id="companyNote" rows="3" maxlength="5000" placeholder="Your thesis, open questions, next steps…"></textarea><p class="muted small">Saved in the database. Private to this browser profile; clearing cookies loses access.</p><button id="saveNote" type="submit">Save note</button><span id="noteStatus" role="status"></span></form></section>
+</main>
+<aside class="assistant" aria-label="Research assistant"><header class="assistant-head"><div><p class="eyebrow">Grounded in the filings</p><h2>Research assistant</h2></div><button id="clearChatBtn" aria-label="Clear conversation">Clear</button></header><div class="assistant-scope"><span id="chatScopeChip">Select a company</span><select id="chatScope" aria-label="Chat scope"><option value="company">This company</option><option value="all">Compare all</option><option value="none">No scope</option></select></div><div id="chatSuggestions" class="suggestions" aria-label="Suggested questions"></div><div id="chatLog" role="log" aria-live="polite" aria-relevant="additions text"></div><form id="chatForm" class="composer"><label class="sr-only" for="chatInput">Ask a question</label><textarea id="chatInput" rows="3" maxlength="1000" placeholder="Ask a question about the reports…"></textarea><div class="composer-actions"><span class="small muted">Enter to send · Shift+Enter for a new line</span><button id="askBtn" type="submit">Send ↗</button></div><div id="chatStatus" class="small" aria-live="polite"></div></form></aside>
+</div><div id="toast" role="status" hidden></div>
+<dialog id="commandDialog"><form method="dialog"><div class="section-head"><h2>Find or ask</h2><button aria-label="Close command palette">Close</button></div></form><label for="commandInput">Company name or research question</label><input id="commandInput" placeholder="Apple, compare, or ask a question"><div id="commandResults"></div></dialog>
+<script src="/static/js/api.js?v=2"></script><script src="/static/js/chat.js?v=2"></script><script src="/static/js/dashboard.js?v=2"></script></body></html>

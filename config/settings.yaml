@@ -1,0 +1,16 @@
+frontend:
+  api_url: http://localhost:8000
+
+backend:
+  vector_db:
+    url: your-supabase-url
+    api_key: your-supabase-key
+    table_name: documents
+
+  llm:
+    provider: gemini
+    api_key: your-gemini-api-key
+    model: your-gemini-model
+
+  database:
+    url: your-supabase-postgres-url

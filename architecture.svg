@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow Orchestration Platform — Logical Architecture</title>
+  <desc id="desc">A client uses the FastAPI service to manage versioned workflows and runs. Workers poll the worker API for eligible tasks, execute allow-listed handlers, and report results. The service persists workflow and execution state in a relational database.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#52657a"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#3273a8"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #182433; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #536477; }
+      .group-title { font-size: 19px; font-weight: 700; }
+      .box-title { font-size: 17px; font-weight: 700; }
+      .body { font-size: 14px; fill: #35475a; }
+      .small { font-size: 13px; fill: #536477; }
+      .label { font-size: 13px; font-weight: 600; fill: #43566a; }
+      .outer { fill: #f7f9fc; stroke: #9aabba; stroke-width: 2; }
+      .component { fill: #ffffff; stroke: #6f879d; stroke-width: 1.8; }
+      .api { fill: #eaf3fb; stroke: #3273a8; stroke-width: 2; }
+      .coord { fill: #eef4fa; stroke: #527b9e; stroke-width: 1.8; }
+      .worker { fill: #f3f6f8; stroke: #7b8d9e; stroke-width: 1.8; }
+      .store { fill: #f1f5f1; stroke: #6f8b72; stroke-width: 1.8; }
+      .arrow { fill: none; stroke: #52657a; stroke-width: 2.4; marker-end: url(#arrow); }
+      .arrow-blue { fill: none; stroke: #3273a8; stroke-width: 2.6; marker-end: url(#arrowBlue); }
+      .dashed { stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="940" fill="#ffffff"/>
+  <text x="64" y="62" class="title">Workflow Orchestration Platform</text>
+  <text x="64" y="92" class="subtitle">Logical architecture · backend MVP</text>
+
+  <!-- Client -->
+  <rect x="70" y="205" width="245" height="150" rx="14" class="component"/>
+  <text x="192" y="240" text-anchor="middle" class="box-title">User / Client</text>
+  <text x="192" y="273" text-anchor="middle" class="body">Create and publish workflows</text>
+  <text x="192" y="298" text-anchor="middle" class="body">Start, inspect, cancel runs</text>
+  <text x="192" y="331" text-anchor="middle" class="small">REST API · OpenAPI docs</text>
+
+  <!-- Application boundary -->
+  <rect x="390" y="145" width="710" height="505" rx="20" class="outer"/>
+  <text x="425" y="180" class="group-title">Orchestration API Service</text>
+  <text x="425" y="205" class="small">FastAPI · bearer-token gates · request validation</text>
+
+  <rect x="430" y="235" width="285" height="150" rx="12" class="api"/>
+  <text x="572" y="269" text-anchor="middle" class="box-title">Workflow API</text>
+  <text x="454" y="302" class="body">• Draft create and update</text>
+  <text x="454" y="327" class="body">• DAG validation</text>
+  <text x="454" y="352" class="body">• Immutable published versions</text>
+
+  <rect x="755" y="235" width="305" height="230" rx="12" class="coord"/>
+  <text x="907" y="269" text-anchor="middle" class="box-title">Run Coordinator</text>
+  <text x="779" y="302" class="body">• Create runs pinned to a version</text>
+  <text x="779" y="327" class="body">• Gate steps on dependency success</text>
+  <text x="779" y="352" class="body">• Track step attempts and outcomes</text>
+  <text x="779" y="377" class="body">• Retry failures with backoff</text>
+  <text x="779" y="402" class="body">• Enforce leases and step deadlines</text>
+  <text x="779" y="437" class="small">Run history · events · cancellation</text>
+
+  <rect x="430" y="420" width="285" height="185" rx="12" class="api"/>
+  <text x="572" y="454" text-anchor="middle" class="box-title">Worker API</text>
+  <text x="454" y="487" class="body">• Register worker capabilities</text>
+  <text x="454" y="512" class="body">• Claim eligible work</text>
+  <text x="454" y="537" class="body">• Heartbeat lease</text>
+  <text x="454" y="562" class="body">• Report completion or failure</text>
+
+  <!-- Workers -->
+  <rect x="1225" y="205" width="300" height="260" rx="14" class="outer"/>
+  <text x="1375" y="240" text-anchor="middle" class="group-title">Worker Pool</text>
+  <rect x="1255" y="265" width="240" height="76" rx="10" class="worker"/>
+  <text x="1375" y="295" text-anchor="middle" class="box-title">Worker A</text>
+  <text x="1375" y="320" text-anchor="middle" class="small">Allow-listed task handlers</text>
+  <rect x="1255" y="358" width="240" height="76" rx="10" class="worker"/>
+  <text x="1375" y="388" text-anchor="middle" class="box-title">Worker … N</text>
+  <text x="1375" y="413" text-anchor="middle" class="small">Independent task execution</text>
+
+  <!-- Persistent storage -->
+  <rect x="475" y="735" width="650" height="150" rx="16" class="store"/>
+  <text x="800" y="772" text-anchor="middle" class="group-title">Relational Database</text>
+  <text x="800" y="806" text-anchor="middle" class="body">Workflows and versions · runs and step states · attempts · workers · run events</text>
+  <text x="800" y="842" text-anchor="middle" class="small">SQLite for local use · PostgreSQL for shared deployment</text>
+
+  <!-- Client/API flows -->
+  <path d="M315 267 H420" class="arrow-blue"/>
+  <text x="367" y="250" text-anchor="middle" class="label">HTTPS / JSON</text>
+  <path d="M420 322 H315" class="arrow dashed"/>
+  <text x="367" y="345" text-anchor="middle" class="label">status and history</text>
+
+  <!-- Internal service flows -->
+  <path d="M715 310 H745" class="arrow"/>
+  <path d="M570 385 V410" class="arrow"/>
+  <path d="M715 510 H745 V460" class="arrow"/>
+  <text x="730" y="495" text-anchor="middle" class="small" transform="rotate(-90 730 495)">claim and report</text>
+
+  <!-- Worker polling and results -->
+  <path d="M1060 305 H1215" class="arrow-blue"/>
+  <text x="1138" y="286" text-anchor="middle" class="label">poll / claim task</text>
+  <path d="M1215 405 H1060" class="arrow"/>
+  <text x="1138" y="429" text-anchor="middle" class="label">heartbeat · result</text>
+
+  <!-- Persistence flows -->
+  <path d="M640 650 V725" class="arrow"/>
+  <text x="655" y="698" class="label">workflow and worker state</text>
+  <path d="M900 650 V725" class="arrow"/>
+  <text x="915" y="698" class="label">run state and events</text>
+
+  <!-- Architectural note -->
+  <rect x="1170" y="565" width="355" height="105" rx="12" fill="#fffaf0" stroke="#c8ad72" stroke-width="1.6"/>
+  <text x="1194" y="598" class="box-title">Execution model</text>
+  <text x="1194" y="625" class="body">Workers poll the API; database state is durable.</text>
+  <text x="1194" y="649" class="body">No separate message broker in this MVP.</text>
+
+  <text x="64" y="910" class="small">Task code runs only in workers; workflow definitions describe steps and dependencies, never executable code.</text>
+</svg>

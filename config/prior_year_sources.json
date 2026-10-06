@@ -1,0 +1,154 @@
+{
+  "Apple": {
+    "revenue": {
+      "document": "2023_Apple.pdf",
+      "page": 31,
+      "value": 383285,
+      "derived": false
+    },
+    "net_income": {
+      "document": "2023_Apple.pdf",
+      "page": 31,
+      "value": 96995,
+      "derived": false
+    },
+    "operating_income": {
+      "document": "2023_Apple.pdf",
+      "page": 31,
+      "value": 114301,
+      "derived": false
+    },
+    "cash_flow": {
+      "document": "2023_Apple.pdf",
+      "page": 35,
+      "value": 110543,
+      "derived": false
+    },
+    "total_assets": {
+      "document": "2023_Apple.pdf",
+      "page": 33,
+      "value": 352583,
+      "derived": false
+    },
+    "total_liabilities": {
+      "document": "2023_Apple.pdf",
+      "page": 33,
+      "value": 290437,
+      "derived": false
+    }
+  },
+  "Amazon": {
+    "revenue": {
+      "document": "2023_Amazon.pdf",
+      "page": 50,
+      "value": 574785,
+      "derived": false
+    },
+    "net_income": {
+      "document": "2023_Amazon.pdf",
+      "page": 50,
+      "value": 30425,
+      "derived": false
+    },
+    "operating_income": {
+      "document": "2023_Amazon.pdf",
+      "page": 50,
+      "value": 36852,
+      "derived": false
+    },
+    "cash_flow": {
+      "document": "2023_Amazon.pdf",
+      "page": 49,
+      "value": 84946,
+      "derived": false
+    },
+    "total_assets": {
+      "document": "2023_Amazon.pdf",
+      "page": 52,
+      "value": 527854,
+      "derived": false
+    },
+    "total_liabilities": {
+      "document": "2023_Amazon.pdf",
+      "page": 52,
+      "value": 325979,
+      "derived": true
+    }
+  },
+  "Tesla": {
+    "revenue": {
+      "document": "2023_Tesla.pdf",
+      "page": 51,
+      "value": 96773,
+      "derived": false
+    },
+    "net_income": {
+      "document": "2023_Tesla.pdf",
+      "page": 51,
+      "value": 14974,
+      "derived": false
+    },
+    "operating_income": {
+      "document": "2023_Tesla.pdf",
+      "page": 51,
+      "value": 8891,
+      "derived": false
+    },
+    "cash_flow": {
+      "document": "2023_Tesla.pdf",
+      "page": 54,
+      "value": 13256,
+      "derived": false
+    },
+    "total_assets": {
+      "document": "2023_Tesla.pdf",
+      "page": 50,
+      "value": 106618,
+      "derived": false
+    },
+    "total_liabilities": {
+      "document": "2023_Tesla.pdf",
+      "page": 50,
+      "value": 43009,
+      "derived": false
+    }
+  },
+  "Microsoft": {
+    "revenue": {
+      "document": "2024_Microsoft.pdf",
+      "page": 24,
+      "value": 211915,
+      "derived": false
+    },
+    "net_income": {
+      "document": "2024_Microsoft.pdf",
+      "page": 24,
+      "value": 72361,
+      "derived": false
+    },
+    "operating_income": {
+      "document": "2024_Microsoft.pdf",
+      "page": 24,
+      "value": 88523,
+      "derived": false
+    },
+    "cash_flow": {
+      "document": "2024_Microsoft.pdf",
+      "page": 27,
+      "value": 87582,
+      "derived": false
+    },
+    "total_assets": {
+      "document": "2024_Microsoft.pdf",
+      "page": 26,
+      "value": 411976,
+      "derived": false
+    },
+    "total_liabilities": {
+      "document": "2024_Microsoft.pdf",
+      "page": 26,
+      "value": 205753,
+      "derived": false
+    }
+  }
+}
