@@ -1,0 +1,1150 @@
+================================================================================
+LOADING EMBEDDING MODEL
+================================================================================
+Model: sentence-transformers/all-MiniLM-L6-v2
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1584.47it/s]
+Embedding dimension: 384
+Embedding model loaded.
+
+================================================================================
+RETRIEVING FINANCIAL CONTEXT
+================================================================================
+
+Total targeted queries: 11
+
+SEARCH 1/11
+--------------------------------------------------------------------------------
+Query: Consolidated Statements of Operations Total net sales net sales total revenues revenue Products Services Cost of sales cost of revenue Gross margin years ended 
+DIAGNOSTIC QUERY Consolidated Statements of Operations Total net sales net sales total revenues revenue Products Services Cost of sales cost of revenue Gross margin years ended in millions CHUNKS 20
+CHUNK  AMAZON.COM, INC.
+                    CONSOLIDATED STATEMENTS OF OPERATIONS
+                                              (in millions, except per share data)
+
+                     
+CHUNK  Apple Inc.
+
+                                    CONSOLIDATED STATEMENTS OF OPERATIONS
+                                    (In millions, except number of shares, which are reflected
+CHUNK                                AMAZON.COM, INC.
+                    CONSOLIDATED STATEMENTS OF OPERATIONS
+                                              (in millions, except per shar
+CHUNK  **==> picture [479 x 389] intentionally omitted <==**
+
+**----- Start of picture text -----**<br>
+For the year ended For the year ended<br>March 31, 2025 March 31, 2024<br>Income fr
+CHUNK  10. We did not audit the financial statements of one subsidiary, whose financial statements reflect total assets of Rs. 98 million as at 31 March 2025, total revenues of Rs. 612 mi
+CHUNK  b) Timing of revenue recognition 
+
+**==> picture [479 x 143] intentionally omitted <==**
+
+**----- Start of picture text -----**<br>
+For the year ended For the year ended<br>March 3
+CHUNK  . As the Group’s revenues are from domestic sales, no separate geographical segment is disclosed. The revenues, total expenses and profit as per the Statement of Profit and Loss re
+CHUNK  Year Ended December 31,
+
+                                                                              2022               2023               2024
+ Cost of sales                    
+CHUNK  13,062  $          12,066  $          11,569
+
+
+A reconciliation of the Company’s segment operating income to the Consolidated Statements of Operations for 2024, 2023 and 2022 is as
+CHUNK  2022
+
+Automotive segment
+
+  Revenues                                                               $          87,604  $          90,738  $          77,553
+
+  Cost of revenues (1)  
+CHUNK  _74_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+|Total increase (decrease) in property,<br> plant and equipment||
+CHUNK  _88_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+|Total increase (decrease) in property,<br> plant and equipment||
+CHUNK  _98_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+|Total increase (decrease) in property,<br> plant and equipment||
+CHUNK  d services.
+
+          •   Search and news advertising, comprising Bing (including Copilot), Microsoft News, Microsoft Edge, and third-
+            party affiliates.
+
+Revenue and c
+CHUNK  _68_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+|Decrease through loss of control of<br>subsidiary, property, pla
+CHUNK  _86_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+|Total increase (decrease) in property,<br> plant and equipment||
+CHUNK  years ended December 31, 2024, 2023 and 2022, we recorded write-downs of $190 million, $233 million and $144 million, respectively,
+in Cost of revenues in the consolidated statemen
+CHUNK  Tesla, Inc.
+
+                                             Consolidated Statements of Operations
+                                                         (in millions, except per sh
+CHUNK  Results of Operations
+
+    We have organized our operations into three segments: North America, International, and AWS. These segments reflect
+the way the Company evaluates its bus
+CHUNK  Note 17 – Segment Reporting and Information about Geographic Areas
+
+     Our Chief Executive Officer, as the CODM, organizes our company, manages resource allocations and measures 
+Retrieved 20 chunks.
+  [1] sim=0.6751 meta={'page': 49, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 158}
+  [2] sim=0.6689 meta={'page': 16, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 38}
+  [3] sim=0.6501 meta={'page': 50, 'year': 2023, 'source': '2023_Amazon.pdf', 'company': 'Amazon', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [4] sim=0.6234 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1187}
+  [5] sim=0.6004 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 27}
+  [6] sim=0.5984 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1188}
+  [7] sim=0.5955 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1056}
+  [8] sim=0.5939 meta={'page': 73, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'cash flows.', 'chunk_index': 239}
+  [9] sim=0.5926 meta={'page': 34, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'The following table shows information by reportable segment for 2024, 2023 and 2022 (in millions):', 'chunk_index': 100}
+  [10] sim=0.5912 meta={'page': 38, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Note 17 – Segment Reporting and Information about Geographic Areas', 'chunk_index': 118}
+  [11] sim=0.5909 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 449}
+  [12] sim=0.5908 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 504}
+  [13] sim=0.5852 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 541}
+  [14] sim=0.5848 meta={'page': 60, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Intelligent Cloud', 'chunk_index': 163}
+  [15] sim=0.5846 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 425}
+  [16] sim=0.5845 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 498}
+  [17] sim=0.5843 meta={'page': 25, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'December 31, 2023', 'chunk_index': 78}
+  [18] sim=0.5836 meta={'page': 10, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 30}
+  [19] sim=0.5835 meta={'page': 36, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Results of Operations', 'chunk_index': 118}
+  [20] sim=0.5829 meta={'page': 38, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Note 17 – Segment Reporting and Information about Geographic Areas', 'chunk_index': 117}
+
+SEARCH 2/11
+--------------------------------------------------------------------------------
+Query: Operating income income from operations Total operating expenses research and development selling general and administrative
+DIAGNOSTIC QUERY Operating income income from operations Total operating expenses research and development selling general and administrative CHUNKS 20
+CHUNK  The following table shows information by reportable segment for 2024, 2023 and 2022 (in millions):
+
+                                                                                
+CHUNK  General and Administrative
+
+     The decrease in general and administrative costs in 2024, compared to the prior year, is primarily due to a decrease in
+payroll and related expense
+CHUNK  180,683            169,148            170,782
+
+
+Operating expenses:
+    Research and development                                                                  31,370            
+CHUNK  |**[500100] Notes - Subclassification and notes on income and expenses**|**[500100] Notes - Subclassification and notes on income and expenses**|**[500100] Notes - Subclassificatio
+CHUNK                 FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA
+
+                                INCOME STATEMENTS
+
+
+(In millions, except per share amounts)
+
+Year Ended June 30,        
+CHUNK  FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA
+
+                                INCOME STATEMENTS
+
+
+(In millions, except per share amounts)
+
+Year Ended June 30,                       
+CHUNK  61,870              65,121              49,599
+
+  Automotive leasing                                                                                 1,003                1,268     
+CHUNK  13,062  $          12,066  $          11,569
+
+
+A reconciliation of the Company’s segment operating income to the Consolidated Statements of Operations for 2024, 2023 and 2022 is as
+CHUNK  flected in the segment in which the costs are incurred. The majority of
+technology costs recorded in “Technology and infrastructure” are incurred in the U.S. and are included in ou
+CHUNK  |Unless otherwise specified, all monetary values are in Millions of INR|Unless otherwise specified, all monetary values are in Millions of INR|Unless otherwise specified, all monet
+CHUNK  |Netgain/loss on sale of investments[Abstract]|||
+|Netgain/loss on sale of current investments|6|24|
+|Total netgain/loss on sale of investments|6|24|
+|Other non-operatingincome[Abs
+CHUNK  |Revenue from sale ofproducts|0|0|
+|Revenue from sale of services|204,933|179,073|
+|Total revenue from operations other than finance company|204,933|179,073|
+|Total revenue from op
+CHUNK  Income from advertisement services Income from advertisement services are recognized based on the number of cost per day, clicks (which are generated each time users on its platfor
+CHUNK  Note 17 – Segment Reporting and Information about Geographic Areas
+
+     Our Chief Executive Officer, as the CODM, organizes our company, manages resource allocations and measures 
+CHUNK  7,197
+
+Income from operations                                                                            7,076                8,891              13,656
+
+Interest income            
+CHUNK  Income from advertisement services Income from advertisement services are recognized based on the number of cost per day, clicks (which are generated each time users on its platfor
+CHUNK                                                             Apple Inc.
+
+                                    CONSOLIDATED STATEMENTS OF OPERATIONS
+                                   
+CHUNK  Operating income (loss)                                       $       (2,847) $      14,877  $      24,967
+ International
+    Net sales                                             
+CHUNK  . As the Group’s revenues are from domestic sales, no separate geographical segment is disclosed. The revenues, total expenses and profit as per the Statement of Profit and Loss re
+CHUNK  |Insurance|277|220|
+|---|---|---|
+|Rates and taxes excludingtaxes on income[Abstract]|||
+|Other cess taxes|11|22|
+|Total rates and taxes excludingtaxes on income|11|22|
+|Electricit
+Retrieved 20 chunks.
+  [1] sim=0.6618 meta={'page': 34, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'The following table shows information by reportable segment for 2024, 2023 and 2022 (in millions):', 'chunk_index': 99}
+  [2] sim=0.6547 meta={'page': 39, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'General and Administrative', 'chunk_index': 129}
+  [3] sim=0.6484 meta={'page': 16, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 39}
+  [4] sim=0.6087 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1220}
+  [5] sim=0.6061 meta={'page': 24, 'year': 2023, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [6] sim=0.6060 meta={'page': 24, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA', 'chunk_index': 62}
+  [7] sim=0.5891 meta={'page': 10, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 31}
+  [8] sim=0.5721 meta={'page': 34, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'The following table shows information by reportable segment for 2024, 2023 and 2022 (in millions):', 'chunk_index': 100}
+  [9] sim=0.5715 meta={'page': 77, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'The reconciliation of our income tax contingencies is as follows (in millions):', 'chunk_index': 253}
+  [10] sim=0.5689 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 74}
+  [11] sim=0.5562 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1222}
+  [12] sim=0.5409 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1221}
+  [13] sim=0.5371 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 213}
+  [14] sim=0.5320 meta={'page': 38, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Note 17 – Segment Reporting and Information about Geographic Areas', 'chunk_index': 117}
+  [15] sim=0.5299 meta={'page': 10, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 32}
+  [16] sim=0.5284 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 323}
+  [17] sim=0.5220 meta={'page': 31, 'year': 2023, 'source': '2023_Apple.pdf', 'company': 'Apple', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [18] sim=0.5220 meta={'page': 78, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'North America', 'chunk_index': 255}
+  [19] sim=0.5218 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1056}
+  [20] sim=0.5211 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1226}
+
+SEARCH 3/11
+--------------------------------------------------------------------------------
+Query: Net income net earnings net loss earnings per share basic diluted Net income attributable net income per share
+DIAGNOSTIC QUERY Net income net earnings net loss earnings per share basic diluted Net income attributable net income per share CHUNKS 20
+CHUNK  ## reliably determined. 
+
+## 2.16 Earnings per share 
+
+Basic earnings per share is computed by dividing the profit / (loss) attributable to ordinary equity holders of the Group by 
+CHUNK  ## reliably determined. 
+
+## 2.16 Earnings per share 
+
+Basic earnings per share is computed by dividing the profit / (loss) attributable to ordinary equity holders of the Group by 
+CHUNK  |Earningsper share explanatory [TextBlock]|||
+|Earningsper share[Abstract]|||
+|Basic earningsper share[Abstract]|||
+|Basic earnings(loss) per share from continuingoperations|[INR/s
+CHUNK  12,248        36,852         68,593
+Interest income                                                           989          2,949          4,677
+Interest expense                    
+CHUNK  |Earningsper share[Abstract]|||||
+|Earningsper share[Line items]|||||
+|Basic earningsper share[Abstract]|||||
+|Basic earnings (loss) per share from<br>continuingoperations|[INR/sha
+CHUNK  arrangements, with the associated leases recognized as operating                  $      5,158  $      1,374  $    —
+
+
+  Earnings Per Share
+
+      Basic earnings per share is calcu
+CHUNK  |Diluted earningsper share[Abstract]|||
+|Diluted earnings(loss) per share from continuingoperations|[INR/shares]-5.57|<br>[INR/shares]-8.86|
+|Total diluted earnings(loss) per share
+CHUNK  NOTE 2 — EARNINGS PER SHARE
+
+Basic earnings per share (“EPS”) is computed based on the weighted average number of shares of common stock
+outstanding during the period. Diluted EPS 
+CHUNK  _286_ 
+
+_FLIPKART INTERNET PRIVATE LIMITED Consolidated Financial Statements for period 01/04/2024 to 31/03/2025_ 
+
+## Textual information (23) 
+
+## **Disclosure of earnings per sh
+CHUNK  A reconciliation of loss for the year and weighted average number of ordinary shares used in the computation of basic and diluted earnings per share is stated below: 
+
+**==> pictur
+CHUNK  |**[613000] Notes - Earnings per share**|**[613000] Notes - Earnings per share**|**[613000] Notes - Earnings per share**|
+|---|---|---|
+|Unless otherwise specified, all monetary va
+CHUNK  180,683            169,148            170,782
+
+
+Operating expenses:
+    Research and development                                                                  31,370            
+CHUNK  |**[500200] Notes - Additional information statement of profit and loss**|**[500200] Notes - Additional information statement of profit and loss**|**[500200] Notes - Additional inf
+CHUNK  |Amount of share in profit or loss of entity<br>consolidated|-15,687|6|64|-801|
+|Share in profit or loss of entity as<br>percentage of consolidated profit or<br>loss|96.00%|0.00%|0
+CHUNK  $              2.23  $              4.73  $              4.02
+
+    Diluted                                                                     $              2.04  $              4
+CHUNK  333
+Income before income taxes                                                   107,787     89,311      83,716
+Provision for income taxes                                          
+CHUNK  Year Ended December 31,
+
+                                                                                     2024               2023               2022
+
+Net income attributable to
+CHUNK  The following table presents the reconciliation of basic to diluted weighted average shares used in computing net income per share of common
+stock attributable to common stockholde
+CHUNK  As at April 1, Changes in equity share capital during the As at March 31,<br>Year ended March 31, 2025<br>2024 year 2025<br>Equity share capital (refer<br>2,628 1 2,629<br>note 7)<
+CHUNK  |Whether company has comprehensive income OCI components presented<br>before tax|No|No|
+|Other comprehensive income before tax[Abstract]|||
+|Total other comprehensive income|-100|1
+Retrieved 20 chunks.
+  [1] sim=0.7219 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 333}
+  [2] sim=0.7219 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 223}
+  [3] sim=0.6980 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 79}
+  [4] sim=0.6973 meta={'page': 49, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 159}
+  [5] sim=0.6866 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 72}
+  [6] sim=0.6797 meta={'page': 54, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'diluted share.', 'chunk_index': 174}
+  [7] sim=0.6675 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1435}
+  [8] sim=0.6582 meta={'page': 37, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'NOTE 2 — EARNINGS PER SHARE', 'chunk_index': 97}
+  [9] sim=0.6577 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1437}
+  [10] sim=0.6479 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1438}
+  [11] sim=0.6462 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1434}
+  [12] sim=0.6306 meta={'page': 16, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 39}
+  [13] sim=0.6255 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1243}
+  [14] sim=0.6246 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1267}
+  [15] sim=0.6239 meta={'page': 10, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 33}
+  [16] sim=0.6210 meta={'page': 24, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA', 'chunk_index': 63}
+  [17] sim=0.6179 meta={'page': 18, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'NoncontrollingInterestsandRedeemableNoncontrollingInterests', 'chunk_index': 56}
+  [18] sim=0.6116 meta={'page': 19, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'stock attributable to common stockholders (in millions):', 'chunk_index': 57}
+  [19] sim=0.6050 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 130}
+  [20] sim=0.5956 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 78}
+
+SEARCH 4/11
+--------------------------------------------------------------------------------
+Query: Consolidated Balance Sheets Total assets Total current assets cash and cash equivalents marketable securities accounts receivable inventories Total non-current 
+DIAGNOSTIC QUERY Consolidated Balance Sheets Total assets Total current assets cash and cash equivalents marketable securities accounts receivable inventories Total non-current assets property and equipment CHUNKS 20
+CHUNK  Apple Inc.
+
+                                        CONSOLIDATED BALANCE SHEETS
+                                          (In millions, except number of shares, which are reflected
+CHUNK  AMAZON.COM, INC.
+                         CONSOLIDATED BALANCE SHEETS
+                                              (in millions, except per share data)
+
+                          
+CHUNK                                                             Apple Inc.
+
+                                        CONSOLIDATED BALANCE SHEETS
+                                         
+CHUNK  Consolidated Statements of Cash Flows Reconciliation
+
+     The following table provides a reconciliation of the amount of cash, cash equivalents, and restricted cash reported withi
+CHUNK  |Total non-current financial assets|3,321|3,236||
+|Other non-current assets|1,686|3,653||
+|Total non-current assets|11,110|14,959||
+|Current assets[Abstract]||||
+|Inventories|0|0||
+CHUNK  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024            2023
+Assets
+Current assets:
+  C
+CHUNK  The aggregate carrying values of the VIEs’ assets and liabilities, after elimination of any intercompany transactions and balances, in the
+consolidated balance sheets were as follo
+CHUNK  Tesla, Inc.
+
+                                                  Consolidated Balance Sheets
+                                                         (in millions, except per share d
+CHUNK                                AMAZON.COM, INC.
+                         CONSOLIDATED BALANCE SHEETS
+                                              (in millions, except per share dat
+CHUNK  5                  (1,220)
+
+Cash and cash equivalents and restricted cash, beginning of period                                                 17,189                16,924         
+CHUNK  143,566
+
+
+Non-current assets:
+    Marketable securities                                                                                         91,479             100,544
+     Prop
+CHUNK                                  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024           
+CHUNK                                                                  Tesla, Inc.
+
+                                                  Consolidated Balance Sheets
+                         
+CHUNK  As per the amendment to Ind AS 7, applicable with effect from April 1, 2017, the Group provides disclosures that enable users of these Consolidated Financial Statements to evaluate
+CHUNK  As per the amendment to Ind AS 7, applicable with effect from April 1, 2017, the Group provides disclosures that enable users of these Consolidated Financial Statements to evaluate
+CHUNK  |Total other non-current financial assets|341|326|
+|Advances,non-current|1,105|1,353|
+|Total other non-current assets|1,686|3,653|
+|Disclosure of notes on cash and bank balances ex
+CHUNK  (3,533)
+         Total cash, cash equivalents, and marketable securities
+                                                                                           $   101,202
+____
+CHUNK  |**[110000] Balance sheet**|**[110000] Balance sheet**|**[110000] Balance sheet**|**[110000] Balance sheet**|
+|---|---|---|---|
+|Unless otherwise specified, all monetary values are
+CHUNK  interests in the results of operations of the funds are determined as the difference in the noncontrolling
+interest and redeemable noncontrolling interest balances in the consolida
+CHUNK  Contingent liabilities and assets are not recognised on the Balance Sheet of the Group, except for contingent liabilities assumed in a business combination that are present obligat
+Retrieved 20 chunks.
+  [1] sim=0.7341 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 43}
+  [2] sim=0.7140 meta={'page': 51, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 163}
+  [3] sim=0.7131 meta={'page': 33, 'year': 2023, 'source': '2023_Apple.pdf', 'company': 'Apple', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [4] sim=0.6902 meta={'page': 65, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Consolidated Statements of Cash Flows Reconciliation', 'chunk_index': 210}
+  [5] sim=0.6848 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 67}
+  [6] sim=0.6843 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 65}
+  [7] sim=0.6819 meta={'page': 37, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'consolidated balance sheets were as follows (in millions):', 'chunk_index': 115}
+  [8] sim=0.6773 meta={'page': 9, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 26}
+  [9] sim=0.6741 meta={'page': 52, 'year': 2023, 'source': '2023_Amazon.pdf', 'company': 'Amazon', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [10] sim=0.6664 meta={'page': 13, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 43}
+  [11] sim=0.6638 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 44}
+  [12] sim=0.6539 meta={'page': 26, 'year': 2023, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [13] sim=0.6503 meta={'page': 50, 'year': 2023, 'source': '2023_Tesla.pdf', 'company': 'Tesla', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [14] sim=0.6414 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 340}
+  [15] sim=0.6414 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 230}
+  [16] sim=0.6399 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 982}
+  [17] sim=0.6359 meta={'page': 64, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'December 31, 2024', 'chunk_index': 208}
+  [18] sim=0.6346 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 66}
+  [19] sim=0.6314 meta={'page': 18, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'NoncontrollingInterestsandRedeemableNoncontrollingInterests', 'chunk_index': 55}
+  [20] sim=0.6296 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 222}
+
+SEARCH 5/11
+--------------------------------------------------------------------------------
+Query: Total liabilities current liabilities term debt commercial paper accounts payable long-term debt Total non-current liabilities Total shareholders equity stockho
+DIAGNOSTIC QUERY Total liabilities current liabilities term debt commercial paper accounts payable long-term debt Total non-current liabilities Total shareholders equity stockholders equity Total liabilities and shareholders equity Total liabilities and stockholders equity CHUNKS 20
+CHUNK  143,566
+
+
+Non-current assets:
+    Marketable securities                                                                                         91,479             100,544
+     Prop
+CHUNK  15,497        12,728
+Other long-term liabilities                                                                27,064        17,981
+          Total liabilities                    
+CHUNK  |Other current financial liabilities, others<br> [Abstract]|||||
+|Other current financial liabilities, others<br> [Line items]|||||
+|Description of other current financial<br>liabi
+CHUNK  |Subclassification and notes on liabilities and assets<br> [Abstract]|||||
+|Disclosure of other current financial liabilities<br>notes[Abstract]|||||
+|Other current financial liabi
+CHUNK  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024            2023
+Assets
+Current assets:
+  C
+CHUNK                                  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024           
+CHUNK  |Subclassification and notes on liabilities and assets<br> [Abstract]|||||
+|Disclosure of other non-current financial<br>liabilities notes[Abstract]|||||
+|Other non-current financi
+CHUNK  36,460        30,601
+              Total assets                                                    $    512,163  $    411,976
+
+Liabilities and stockholders’ equity
+Current liabilit
+CHUNK  |Total assets|130,626|106,045||
+|Equityand liabilities[Abstract]||||
+|Equity [Abstract]||||
+|Equityattributable to owners ofparent[Abstract]||||
+|Equityshare capital|2,628.8554543|
+CHUNK  |Provisions,non-current|0|0||
+|Deferred tax liabilities(net)|16|37||
+|Other non-current liabilities|1,833|1,341||
+|Total non-current liabilities|3,585|4,035||
+|Current liabilities[
+CHUNK  **Other non-current financial liabilities others [Table] ..(1)**
+CHUNK  4,924                5,229
+
+Property, plant and equipment, net                                                                                       35,836              29,725
+
+Ope
+CHUNK  ## (iv) Other financial liabilities 
+
+**==> picture [479 x 348] intentionally omitted <==**
+
+**----- Start of picture text -----**<br>
+Non-Current Current<br>As at As at As at As a
+CHUNK  Note 9 – Other Long-Term Liabilities
+
+     Our other long-term liabilities consisted of the following (in millions):
+
+
+                                                             
+CHUNK  ## **Footnotes** 
+
+(A) (i) Lease liabilities 1,736 (ii) Other financial liabilities - (i) Borrowings 16,042 (ii) Lease liabilities 906 (iii) Trade and other payables Total outstand
+CHUNK  **Other current financial liabilities, others [Table]** 
+
+**..(1)**
+CHUNK  |Total other non-current liabilities|1,833|1,341|
+|Interest accrued on borrowings|1,175|1,250|
+|Interest accrued onpublic deposits|0|0|
+|Interest accrued others|0|0|
+|Unpaid divide
+CHUNK  |Subclassification and notes on liabilities and assets<br> [Abstract]|||||
+|Disclosure of other current liabilities notes<br> [Abstract]|||||
+|Other current liabilities[Abstract]||
+CHUNK  1,687          (358)        696
+     Other current liabilities                                                    4,867        2,272        2,344
+     Other long-term liabilities  
+CHUNK  |Other current liabilities,others|4,439|5,312|
+|Other current liabilities,others[Abstract]|||
+|Other current liabilities,others[Line items]|||
+|Description of other current liabili
+Retrieved 20 chunks.
+  [1] sim=0.7815 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 44}
+  [2] sim=0.7011 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 67}
+  [3] sim=0.6882 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 951}
+  [4] sim=0.6839 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 948}
+  [5] sim=0.6632 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 65}
+  [6] sim=0.6550 meta={'page': 26, 'year': 2023, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [7] sim=0.6539 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 939}
+  [8] sim=0.6519 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 66}
+  [9] sim=0.6489 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 68}
+  [10] sim=0.6450 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 69}
+  [11] sim=0.6405 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 937}
+  [12] sim=0.6394 meta={'page': 9, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 27}
+  [13] sim=0.6385 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1001}
+  [14] sim=0.6377 meta={'page': 27, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Note 9 – Other Long-Term Liabilities', 'chunk_index': 82}
+  [15] sim=0.6373 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 783}
+  [16] sim=0.6351 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 946}
+  [17] sim=0.6321 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 984}
+  [18] sim=0.6315 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 942}
+  [19] sim=0.6304 meta={'page': 27, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'CASH FLOWS STATEMENTS', 'chunk_index': 69}
+  [20] sim=0.6286 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 945}
+
+SEARCH 6/11
+--------------------------------------------------------------------------------
+Query: Total assets Total liabilities Total shareholders equity Total stockholders equity Total liabilities and shareholders equity Total liabilities and stockholders 
+DIAGNOSTIC QUERY Total assets Total liabilities Total shareholders equity Total stockholders equity Total liabilities and shareholders equity Total liabilities and stockholders equity consolidated balance sheet CHUNKS 20
+CHUNK  s                                                                    113,618        172,866
+              Total stockholders’ equity                                                
+CHUNK  15,497        12,728
+Other long-term liabilities                                                                27,064        17,981
+          Total liabilities                    
+CHUNK  Contingent liabilities and assets are not recognised on the Balance Sheet of the Group, except for contingent liabilities assumed in a business combination that are present obligat
+CHUNK  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024            2023
+Assets
+Current assets:
+  C
+CHUNK  AMAZON.COM, INC.
+                         CONSOLIDATED BALANCE SHEETS
+                                              (in millions, except per share data)
+
+                          
+CHUNK  3                  3
+
+  Additional paid-in capital                                                                                              38,371              34,892
+
+  Accumu
+CHUNK  Contingent liabilities and assets are not recognised on the Balance Sheet of the Group, except for contingent liabilities assumed in a business combination that are present obligat
+CHUNK  |Total assets|130,626|106,045||
+|Equityand liabilities[Abstract]||||
+|Equity [Abstract]||||
+|Equityattributable to owners ofparent[Abstract]||||
+|Equityshare capital|2,628.8554543|
+CHUNK                                AMAZON.COM, INC.
+                         CONSOLIDATED BALANCE SHEETS
+                                              (in millions, except per share dat
+CHUNK                                                             Apple Inc.
+
+                                        CONSOLIDATED BALANCE SHEETS
+                                         
+CHUNK  The aggregate carrying values of the VIEs’ assets and liabilities, after elimination of any intercompany transactions and balances, in the
+consolidated balance sheets were as follo
+CHUNK  Other reserves - equity instruments through OCI (13) (13)<br>Retained earnings (2,63,476) (2,48,728)<br>Total 9,001 (8,738)<br>Capital reserve<br>Balance as at the beginning of the
+CHUNK  |Total non-current financial assets|3,321|3,236||
+|Other non-current assets|1,686|3,653||
+|Total non-current assets|11,110|14,959||
+|Current assets[Abstract]||||
+|Inventories|0|0||
+CHUNK                                  BALANCE SHEETS
+
+
+(In millions)
+
+June 30,                                                                                             2024           
+CHUNK  143,566
+
+
+Non-current assets:
+    Marketable securities                                                                                         91,479             100,544
+     Prop
+CHUNK  STOCKHOLDERS’ EQUITY STATEMENTS
+
+
+(In millions, except per share amounts)
+
+Year Ended June 30,                                                                   2024            202
+CHUNK  |Total other non-current liabilities|1,833|1,341|
+|Interest accrued on borrowings|1,175|1,250|
+|Interest accrued onpublic deposits|0|0|
+|Interest accrued others|0|0|
+|Unpaid divide
+CHUNK  l share, restricted stock unit (“RSU”), and per share or per RSU information throughout
+this Annual Report on Form 10-K has been retroactively adjusted to reflect the stock split. 
+CHUNK  176,392             145,308
+
+
+Non-current liabilities:
+    Term debt                                                                                                   85,750       
+CHUNK  Apple Inc.
+
+                                        CONSOLIDATED BALANCE SHEETS
+                                          (In millions, except number of shares, which are reflected
+Retrieved 20 chunks.
+  [1] sim=0.6696 meta={'page': 51, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 165}
+  [2] sim=0.6585 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 67}
+  [3] sim=0.6403 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 222}
+  [4] sim=0.6356 meta={'page': 26, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'BALANCE SHEETS', 'chunk_index': 65}
+  [5] sim=0.6345 meta={'page': 51, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 163}
+  [6] sim=0.6339 meta={'page': 9, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 29}
+  [7] sim=0.6332 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 332}
+  [8] sim=0.6294 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 68}
+  [9] sim=0.6260 meta={'page': 52, 'year': 2023, 'source': '2023_Amazon.pdf', 'company': 'Amazon', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [10] sim=0.6241 meta={'page': 33, 'year': 2023, 'source': '2023_Apple.pdf', 'company': 'Apple', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [11] sim=0.6205 meta={'page': 37, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'consolidated balance sheets were as follows (in millions):', 'chunk_index': 115}
+  [12] sim=0.6149 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 880}
+  [13] sim=0.6075 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 67}
+  [14] sim=0.6008 meta={'page': 26, 'year': 2023, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Financial statements (FY2023 column)', 'import_version': 'verified-prior-v1'}
+  [15] sim=0.5981 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 44}
+  [16] sim=0.5927 meta={'page': 28, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'STOCKHOLDERS’ EQUITY STATEMENTS', 'chunk_index': 71}
+  [17] sim=0.5906 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 984}
+  [18] sim=0.5829 meta={'page': 53, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 169}
+  [19] sim=0.5816 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 45}
+  [20] sim=0.5801 meta={'page': 18, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 43}
+
+SEARCH 7/11
+--------------------------------------------------------------------------------
+Query: Consolidated Statements of Cash Flows Cash generated by operating activities cash provided by operating activities cash provided by (used in) operating activiti
+DIAGNOSTIC QUERY Consolidated Statements of Cash Flows Cash generated by operating activities cash provided by operating activities cash provided by (used in) operating activities net cash provided by operating activities net cash provided by (used in) operating activities net cash flows from operating activities net cash from operations net cash from operating activities cash flows from operating activities Net income adjustments to reconcile cash and cash equivalents CHUNKS 20
+CHUNK  ## 2.19 Cash flow statements 
+
+Cash flows are reported using the indirect method, whereby profit/(loss) for the period is adjusted for the effects of transactions of a non-cash nat
+CHUNK  ## 2.19 Cash flow statements 
+
+Cash flows are reported using the indirect method, whereby profit/(loss) for the period is adjusted for the effects of transactions of a non-cash nat
+CHUNK  Consolidated Statements of Cash Flows Reconciliation
+
+     The following table provides a reconciliation of the amount of cash, cash equivalents, and restricted cash reported withi
+CHUNK  ns)                                                                       2024              2023              2022
+
+Net cash provided by operating activities                       
+CHUNK  ## **[613200] Notes - Cash flow statement** 
+
+|**[613200] Notes - Cash flow statement**|**[613200] Notes - Cash flow statement**|**[613200] Notes - Cash flow statement**|**[613200]
+CHUNK  |**[320000] Cash flow statement, indirect**|**[320000] Cash flow statement, indirect**|||
+|---|---|---|---|
+|Unless otherwise specified, all monetary values||are in Millions|of INR
+CHUNK  |Unless otherwise specified, all monetary values are|Unless otherwise specified, all monetary values are|in Millions of INR|
+|---|---|---|
+||<br>**01/04/2024**<br>**to**<br>**31/03
+CHUNK  5                  (1,220)
+
+Cash and cash equivalents and restricted cash, beginning of period                                                 17,189                16,924         
+CHUNK  |Net cash flows from (used in) financing activities, continuing<br>operations|36,196|21,301|
+|Net cash flows from(used in)financingactivities|36,196|21,301|
+|Description of non-cur
+CHUNK  regulations define and prescribe the
+conditions for use of certain non-GAAP financial information. Our measures of free cash flows and the effect of foreign
+exchange rates on our c
+CHUNK  NOTES TO FINANCIAL STATEMENTS
+
+                           NOTE 1 — ACCOUNTING POLICIES
+
+Accounting Principles
+
+Our consolidated financial statements and accompanying notes are prep
+CHUNK  Free Cash Flow Less Equipment Finance Leases and Principal Repayments of All Other Finance Leases and Financing
+Obligations
+
+      Free cash flow less equipment finance leases and 
+CHUNK  |Relatedpartytransactions[Abstract]|||||
+|Other relatedpartytransactions expense|685|575|25|100|
+|Other relatedpartytransactions income|||51||
+|Outstanding balances for related par
+CHUNK  *The weighted average effective interest rate was 6.41% per annum for term deposits as at March 31, 2025 (as at March 31, 2024 : 6.56% per annum). 
+
+Cash and cash equivalents consi
+CHUNK  ncing activities                                      $    (15,879) $    (11,812)
+
+
+  Free Cash Flow Less Principal Repayments of Finance Leases and Financing Obligations
+
+      Fr
+CHUNK  Apple Inc.
+
+                                    CONSOLIDATED STATEMENTS OF CASH FLOWS
+                                                                                     (In milli
+CHUNK  |**[500100] Notes - Subclassification and notes on income and expenses**|**[500100] Notes - Subclassification and notes on income and expenses**|**[500100] Notes - Subclassificatio
+CHUNK  |Type of industry|C o m m e r c i a l<br>a n d<br>Industrial||
+|Period covered byfinancial statements|01-04-2024 To 31-03-2025|01-04-2023 To 31-03-2024|
+|Date of start of reporting
+CHUNK  - Evaluate the overall presentation, structure and content of the consolidated financial statements, including the 
+
+- disclosures, and whether the consolidated financial statement
+CHUNK  |Description of nature of related party<br>relationship|Ultimate Holding<br>company|<br>Ultimate Holding<br>company|<br>Associate Company|Associate Company|
+|Relatedpartytransactio
+Retrieved 20 chunks.
+  [1] sim=0.6703 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 339}
+  [2] sim=0.6703 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 229}
+  [3] sim=0.6614 meta={'page': 65, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Consolidated Statements of Cash Flows Reconciliation', 'chunk_index': 210}
+  [4] sim=0.6417 meta={'page': 8, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': '2024, as well as in the long-term.', 'chunk_index': 25}
+  [5] sim=0.6373 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1242}
+  [6] sim=0.6306 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 136}
+  [7] sim=0.6279 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 800}
+  [8] sim=0.6150 meta={'page': 13, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 43}
+  [9] sim=0.6138 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 801}
+  [10] sim=0.6132 meta={'page': 40, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 133}
+  [11] sim=0.6038 meta={'page': 29, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'NOTES TO FINANCIAL STATEMENTS', 'chunk_index': 73}
+  [12] sim=0.6028 meta={'page': 41, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Obligations', 'chunk_index': 136}
+  [13] sim=0.5974 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1340}
+  [14] sim=0.5914 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1011}
+  [15] sim=0.5900 meta={'page': 40, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 134}
+  [16] sim=0.5893 meta={'page': 20, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 50}
+  [17] sim=0.5878 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1220}
+  [18] sim=0.5852 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 2}
+  [19] sim=0.5812 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 24}
+  [20] sim=0.5791 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1291}
+
+SEARCH 8/11
+--------------------------------------------------------------------------------
+Query: Net cash used in investing activities Net cash provided by financing activities Net cash used in financing activities Net increase decrease in cash capital expe
+DIAGNOSTIC QUERY Net cash used in investing activities Net cash provided by financing activities Net cash used in financing activities Net increase decrease in cash capital expenditures free cash flow Investing activities Financing activities CHUNKS 20
+CHUNK  (271)          (669)
+ Free cash flow less principal repayments of finance leases and financing obligations          $     32,158  $     35,507
+
+
+ Net cash provided by (used in) inv
+CHUNK  seller, developer, enterprise, and content creator customers, and
+advertisers, offset by cash payments we make for products and services, employee compensation, payment processing 
+CHUNK  |Payments of lease liabilities|1,205|1,129||
+|Interestpaid|1,277|706||
+|Net cash flows from(used in)financingactivities|36,196|21,301||
+|Net increase (decrease) in cash and cash eq
+CHUNK  ns)                                                                       2024              2023              2022
+
+Net cash provided by operating activities                       
+CHUNK  regulations define and prescribe the
+conditions for use of certain non-GAAP financial information. Our measures of free cash flows and the effect of foreign
+exchange rates on our c
+CHUNK  ncing activities                                      $    (15,879) $    (11,812)
+
+
+  Free Cash Flow Less Principal Repayments of Finance Leases and Financing Obligations
+
+      Fr
+CHUNK  isition of property, plant and equipment                                                      (9,447)              (10,959)              (10,708)
+  Other                           
+CHUNK  t excluding finance leases, net of sales                                            (11,339)                  (8,898)                  (7,158)
+
+Purchases of solar energy systems, n
+CHUNK  |Unless otherwise specified, all monetary values are|Unless otherwise specified, all monetary values are|in Millions of INR|
+|---|---|---|
+||<br>**01/04/2024**<br>**to**<br>**31/03
+CHUNK  Free Cash Flow Less Equipment Finance Leases and Principal Repayments of All Other Finance Leases and Financing
+Obligations
+
+      Free cash flow less equipment finance leases and 
+CHUNK  |Net cash flows from (used in) financing activities, continuing<br>operations|36,196|21,301|
+|Net cash flows from(used in)financingactivities|36,196|21,301|
+|Description of non-cur
+CHUNK  5,744                  3,931            —
+
+Repayments of debt                                                                                                    (2,500)            
+CHUNK  eriod-over-period fluctuations, and independent recalculation of
+prices where appropriate.
+
+
+Cash Flows
+
+Cash from operations increased $31.0 billion to $118.5 billion for fiscal y
+CHUNK  and incentives                     (48,133)       (77,658)
+ Free cash flow                                                                             36,813        38,219
+ Equipme
+CHUNK  ## 2.19 Cash flow statements 
+
+Cash flows are reported using the indirect method, whereby profit/(loss) for the period is adjusted for the effects of transactions of a non-cash nat
+CHUNK  ## 2.19 Cash flow statements 
+
+Cash flows are reported using the indirect method, whereby profit/(loss) for the period is adjusted for the effects of transactions of a non-cash nat
+CHUNK  Other non-financial assets are tested for impairment when there are indicators that the carrying amounts may not be recoverable. 
+
+## 2.8 Cash and cash equivalents 
+
+Cash and cash 
+CHUNK  Other non-financial assets are tested for impairment when there are indicators that the carrying amounts may not be recoverable. 
+
+## 2.8 Cash and cash equivalents 
+
+Cash and cash 
+CHUNK  3)         (94,342)
+FINANCING ACTIVITIES:
+Common stock repurchased                                                                    (6,000)      —      —
+Proceeds from short-term
+CHUNK  Cash and Cash    Short-Term
+                                                      Adjusted Cost       Gains          Losses          Fair Value       Equivalents     Investments
+
+C
+Retrieved 20 chunks.
+  [1] sim=0.7083 meta={'page': 40, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 135}
+  [2] sim=0.6689 meta={'page': 34, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 113}
+  [3] sim=0.6584 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 140}
+  [4] sim=0.6581 meta={'page': 8, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': '2024, as well as in the long-term.', 'chunk_index': 25}
+  [5] sim=0.6555 meta={'page': 40, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 133}
+  [6] sim=0.6511 meta={'page': 40, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Income Taxes', 'chunk_index': 134}
+  [7] sim=0.6492 meta={'page': 20, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 52}
+  [8] sim=0.6283 meta={'page': 13, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 41}
+  [9] sim=0.6267 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 800}
+  [10] sim=0.6236 meta={'page': 41, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Obligations', 'chunk_index': 136}
+  [11] sim=0.6155 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 801}
+  [12] sim=0.6105 meta={'page': 13, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'Tesla, Inc.', 'chunk_index': 42}
+  [13] sim=0.6102 meta={'page': 17, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Cash, Cash Equivalents, and Investments', 'chunk_index': 44}
+  [14] sim=0.6094 meta={'page': 41, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Obligations', 'chunk_index': 137}
+  [15] sim=0.6089 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 339}
+  [16] sim=0.6089 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 229}
+  [17] sim=0.5898 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 301}
+  [18] sim=0.5898 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 191}
+  [19] sim=0.5809 meta={'page': 48, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 157}
+  [20] sim=0.5786 meta={'page': 24, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'mainly from amortization.', 'chunk_index': 75}
+
+SEARCH 9/11
+--------------------------------------------------------------------------------
+Query: Item 1A Risk Factors The Company's business reputation results of operations and financial condition can be materially and adversely affected by the Company's a
+DIAGNOSTIC QUERY Item 1A Risk Factors The Company's business reputation results of operations and financial condition can be materially and adversely affected by the Company's ability to offer products and services competitive in the markets CHUNKS 20
+CHUNK  l results), cash flows,
+liquidity, and stock price. These risk factors do not identify all risks that we face; our operations could also be affected by
+factors, events, or uncertai
+CHUNK  other proceedings,
+fulfillment, sortation, delivery, and data center optimization, risks of inventory management, variability in demand, the degree
+to which we enter into, maintain
+CHUNK  at
+times we are unable to sell products in sufficient quantities or to meet demand during the relevant selling seasons. Any one of
+the inventory risk factors set forth above may ad
+CHUNK  ue to factors described elsewhere in
+this section and the following:
+
+      •   our ability to retain and increase sales to existing customers, attract new customers, and satisfy o
+CHUNK  AMAZON.COM, INC.
+                              FORM 10-K
+                              For the Fiscal Year Ended December 31, 2024
+
+                                     INDEX
+
+
+   
+CHUNK  onstraints and
+related costs, could negatively impact our operating results and customer experience. In addition, our ability to receive inbound
+inventory efficiently and ship comp
+CHUNK  of Equity Securities                  19
+Item 6.             [Reserved]                                                                                                  20
+Item 7. 
+CHUNK  Financial Condition and Results of Operations                                      32
+
+Item 7A.       Quantitative and Qualitative Disclosures about Market Risk                    
+CHUNK  24. Financial risk management objectives and policies 
+
+"The Group is exposed to financial risks arising from its operations and the use of financial instruments. The key financial
+CHUNK  ## a) Credit risk 
+
+"Credit risk is the risk of loss that may arise on outstanding financial instruments should a counterparty default on its obligations. The Group’s exposure to c
+CHUNK  Item 7A.  Quantitative and Qualitative Disclosures About Market Risk
+
+The Company is exposed to economic risk from interest rates and foreign exchange rates. The Company uses vario
+CHUNK  pply Chain
+Standards, as well as products or practices regarded as unethical, unsafe, or hazardous, could expose us to claims, damage our
+reputation, limit our growth, and negative
+CHUNK  have a rapidly evolving business model. The trading price of our common stock fluctuates significantly in response
+to, among other risks, the risks described elsewhere in this Item
+CHUNK  e financial condition or results of operations of
+the Company. Based on this definition, we have identified the critical accounting estimates addressed below. We also have
+other ke
+CHUNK  arm our business and reputation.
+
+  Our Supplier Relationships Subject Us to a Number of Risks
+
+    We have significant suppliers, including content and technology licensors, and i
+CHUNK  s; (8) companies that sell grocery
+products online and in physical stores; (9) companies that provide advertising services, whether in digital or other formats; and
+(10) providers 
+CHUNK  Third parties who
+sell products using our services and stores also expose us to product liability claims. Additionally, under our A-to-z Guarantee,
+
+
+
+                             
+CHUNK  and strategic alliances on favorable terms. We also may be subject
+to claims from businesses to which we provide these services if we are unsuccessful in implementing, maintaining,
+CHUNK  value of those investments being written down or written off. In addition, our sustainability initiatives may be unsuccessful for
+a variety of reasons, including if we are unable t
+CHUNK  y be available on unfavorable terms, if at all. In addition, valuations supporting our acquisitions and
+strategic investments could change rapidly. We could determine that such val
+Retrieved 20 chunks.
+  [1] sim=0.7031 meta={'page': 18, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Board of Directors', 'chunk_index': 51}
+  [2] sim=0.6031 meta={'page': 32, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Item 7.     Management’s Discussion and Analysis of Financial Condition and Results of Operations', 'chunk_index': 102}
+  [3] sim=0.5738 meta={'page': 25, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'ventures with additional companies. These transactions involve risks such as:', 'chunk_index': 81}
+  [4] sim=0.5652 meta={'page': 21, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'trademarks and other proprietary rights.', 'chunk_index': 65}
+  [5] sim=0.5514 meta={'page': 14, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 38}
+  [6] sim=0.5418 meta={'page': 23, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'like.', 'chunk_index': 71}
+  [7] sim=0.5397 meta={'page': 3, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 7}
+  [8] sim=0.5263 meta={'page': 2, 'year': 2024, 'source': '2024_Tesla.pdf', 'company': 'Tesla', 'section': 'TESLA, INC.', 'chunk_index': 4}
+  [9] sim=0.5248 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1038}
+  [10] sim=0.5163 meta={'year': 2025, 'source': '2025_Flipkart.md', 'company': 'Flipkart', 'chunk_index': 1039}
+  [11] sim=0.5152 meta={'page': 14, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Item 7A.  Quantitative and Qualitative Disclosures About Market Risk', 'chunk_index': 34}
+  [12] sim=0.5104 meta={'page': 24, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'workforce.', 'chunk_index': 76}
+  [13] sim=0.5043 meta={'page': 26, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'We Are Subject to Payments-Related Risks', 'chunk_index': 84}
+  [14] sim=0.4981 meta={'page': 33, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'timing of payment terms with suppliers.', 'chunk_index': 109}
+  [15] sim=0.4922 meta={'page': 24, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'workforce.', 'chunk_index': 75}
+  [16] sim=0.4910 meta={'page': 16, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Competition', 'chunk_index': 44}
+  [17] sim=0.4909 meta={'page': 27, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': None, 'chunk_index': 90}
+  [18] sim=0.4895 meta={'page': 24, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'workforce.', 'chunk_index': 77}
+  [19] sim=0.4888 meta={'page': 19, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'plan or execute new strategies, which could harm our business or damage our reputation.', 'chunk_index': 54}
+  [20] sim=0.4870 meta={'page': 25, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'ventures with additional companies. These transactions involve risks such as:', 'chunk_index': 80}
+
+SEARCH 10/11
+--------------------------------------------------------------------------------
+Query: Products and Services Performance net sales by category iPhone Mac iPad Wearables Home and Accessories Services net sales increased higher demand installed base
+DIAGNOSTIC QUERY Products and Services Performance net sales by category iPhone Mac iPad Wearables Home and Accessories Services net sales increased higher demand installed base customers geographic segments CHUNKS 20
+CHUNK  Products and Services Performance
+
+The following table shows net sales by category for 2024, 2023 and 2022 (dollars in millions):
+
+                                                 
+CHUNK  s, Home and Accessories
+
+Wearables, Home and Accessories net sales decreased during 2024 compared to 2023 due primarily to lower net sales of Wearables and Accessories.
+
+
+Services
+
+CHUNK  n the unique facts and circumstances related to each performance obligation including, where applicable, prices
+charged by the Company for similar offerings, market trends in the p
+CHUNK  ivered services. The Company has determined that any unbilled consideration relates entirely to the value of
+the undelivered services. Accordingly, the Company has not recognized r
+CHUNK  26,694             28,300             29,292
+Wearables, Home and Accessories                                                                37,005             39,845             41
+CHUNK  ue to factors described elsewhere in
+this section and the following:
+
+      •   our ability to retain and increase sales to existing customers, attract new customers, and satisfy o
+CHUNK  life cycles, evolving industry standards, continual improvement in
+product price and performance characteristics, rapid adoption of technological advancements by competitors, and p
+CHUNK  s based on the Company’s fiscal calendar, and references to particular years, quarters, months or
+periods refer to the Company’s fiscal years ended in September and the associated 
+CHUNK  Net sales by groups of similar products and services, which also have similar economic characteristics, is as follows (in
+millions):
+
+                                              
+CHUNK  Results of Operations
+
+    We have organized our operations into three segments: North America, International, and AWS. These segments reflect
+the way the Company evaluates its bus
+CHUNK  s; (8) companies that sell grocery
+products online and in physical stores; (9) companies that provide advertising services, whether in digital or other formats; and
+(10) providers 
+CHUNK  nology and infrastructure                                                           17            3
+  Sales and marketing                                                           
+CHUNK  ssive
+pricing, and devote more resources to technology, infrastructure, fulfillment, and marketing.
+
+     Competition continues to intensify, including with the development of new 
+CHUNK  Apple Inc.
+
+                                    CONSOLIDATED STATEMENTS OF OPERATIONS
+                                    (In millions, except number of shares, which are reflected
+CHUNK  y primarily driven by the prior year Q2 charge, offset in part by
+           investments in Azure.
+
+
+More Personal Computing
+
+Revenue increased $7.3 billion or 13%.
+
+          •   
+CHUNK  Competition
+
+     Our businesses encompass a large variety of product types, service offerings, and delivery channels. The worldwide
+marketplace in which we compete is evolving rap
+CHUNK  More Personal Computing
+
+Metrics related to our More Personal Computing segment assess the performance of key lines of business within this
+segment. These metrics provide strategic
+CHUNK  No sales to an individual customer or country other than the United States accounted for more than 10% of revenue for
+fiscal years 2024, 2023, or 2022. Revenue, classified by the m
+CHUNK  third parties across dozens of product
+categories. Customers access our offerings through our websites, mobile apps, Alexa, devices, streaming, and physically
+visiting our stores. 
+CHUNK  games, music, and software. These product sales include digital products sold on a
+     transactional basis. Digital media content subscriptions that provide unlimited viewing or u
+Retrieved 20 chunks.
+  [1] sim=0.7252 meta={'page': 10, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Products and Services Performance', 'chunk_index': 22}
+  [2] sim=0.6932 meta={'page': 10, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Products and Services Performance', 'chunk_index': 23}
+  [3] sim=0.6036 meta={'page': 22, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Note 2 – Revenue', 'chunk_index': 57}
+  [4] sim=0.5719 meta={'page': 22, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Note 2 – Revenue', 'chunk_index': 58}
+  [5] sim=0.5694 meta={'page': 22, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Note 2 – Revenue', 'chunk_index': 59}
+  [6] sim=0.5616 meta={'page': 21, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'trademarks and other proprietary rights.', 'chunk_index': 65}
+  [7] sim=0.5538 meta={'page': 5, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Services', 'chunk_index': 14}
+  [8] sim=0.5384 meta={'page': 4, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': None, 'chunk_index': 10}
+  [9] sim=0.5339 meta={'page': 79, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'millions):', 'chunk_index': 257}
+  [10] sim=0.5271 meta={'page': 36, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Results of Operations', 'chunk_index': 118}
+  [11] sim=0.5264 meta={'page': 16, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Competition', 'chunk_index': 44}
+  [12] sim=0.5213 meta={'page': 37, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'usage, partially offset by pricing changes primarily driven by long-term customer contracts.', 'chunk_index': 122}
+  [13] sim=0.5198 meta={'page': 18, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Board of Directors', 'chunk_index': 52}
+  [14] sim=0.5157 meta={'page': 16, 'year': 2024, 'source': '2024_Apple.pdf', 'company': 'Apple', 'section': 'Apple Inc.', 'chunk_index': 38}
+  [15] sim=0.5063 meta={'page': 13, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'Operating income increased $6.4 billion or 19%.', 'chunk_index': 32}
+  [16] sim=0.5057 meta={'page': 16, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Competition', 'chunk_index': 43}
+  [17] sim=0.5041 meta={'page': 11, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'More Personal Computing', 'chunk_index': 25}
+  [18] sim=0.5026 meta={'page': 61, 'year': 2024, 'source': '2024_Microsoft.pdf', 'company': 'Microsoft', 'section': 'was as follows:', 'chunk_index': 165}
+  [19] sim=0.4940 meta={'page': 15, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 41}
+  [20] sim=0.4869 meta={'page': 79, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'millions):', 'chunk_index': 258}
+
+SEARCH 11/11
+--------------------------------------------------------------------------------
+Query: Risks related to the Company's business and industry global macroeconomic conditions supply chain disruptions manufacturing partners component shortages tariffs
+DIAGNOSTIC QUERY Risks related to the Company's business and industry global macroeconomic conditions supply chain disruptions manufacturing partners component shortages tariffs trade restrictions privacy regulatory data protection cybersecurity intellectual property litigation CHUNKS 20
+CHUNK  l results), cash flows,
+liquidity, and stock price. These risk factors do not identify all risks that we face; our operations could also be affected by
+factors, events, or uncertai
+CHUNK  onstraints and
+related costs, could negatively impact our operating results and customer experience. In addition, our ability to receive inbound
+inventory efficiently and ship comp
+CHUNK  arm our business and reputation.
+
+  Our Supplier Relationships Subject Us to a Number of Risks
+
+    We have significant suppliers, including content and technology licensors, and i
+CHUNK  nue to increase, amplifies these risks.
+
+   Claims, Litigation, Government Investigations, and Other Proceedings May Adversely Affect Our Business and Results of
+Operations
+
+    As
+CHUNK  or stolen goods, selling
+goods in an unlawful or unethical manner, violating the proprietary rights of others, or otherwise violating our policies. When
+these policies and processe
+CHUNK  value of those investments being written down or written off. In addition, our sustainability initiatives may be unsuccessful for
+a variety of reasons, including if we are unable t
+CHUNK  in products or services and uncertainty regarding liability for products,
+           services, and content, including uncertainty as a result of less internet-friendly legal system
+CHUNK  AMAZON.COM, INC.
+                              FORM 10-K
+                              For the Fiscal Year Ended December 31, 2024
+
+                                     INDEX
+
+
+   
+CHUNK  laws, they involve unique risks, and the PRC and India may from time to time consider and implement additional changes in
+their regulatory, licensing, or other requirements that co
+CHUNK  we may reimburse customers for certain product liability claims up to certain limits in these situations, and as our third-party
+seller sales grow, the cost of this program will in
+CHUNK  Practices Act and other applicable U.S. and foreign laws prohibiting
+          corrupt payments to government officials and other third parties;
+
+      •   laws and policies of the
+CHUNK  s, including its fulfillment
+network and Prime, and certain aspects of AWS’s offering of cloud services. We strongly dispute these claims and intend to
+defend ourselves vigorously 
+CHUNK  pply Chain
+Standards, as well as products or practices regarded as unethical, unsafe, or hazardous, could expose us to claims, damage our
+reputation, limit our growth, and negative
+CHUNK  hostilities, and
+           political conflicts, including those involving China), labor or trade disputes (including restrictive governmental
+          actions impacting us, our c
+CHUNK  at
+times we are unable to sell products in sufficient quantities or to meet demand during the relevant selling seasons. Any one of
+the inventory risk factors set forth above may ad
+CHUNK  unable to prevent third parties from acquiring domain names that are similar to, infringe upon, or diminish the value of our
+trademarks and other proprietary rights.
+
+    We are no
+CHUNK  have a rapidly evolving business model. The trading price of our common stock fluctuates significantly in response
+to, among other risks, the risks described elsewhere in this Item
+CHUNK  Suppliers
+
+     During 2024, no vendor accounted for 10% or more of our purchases. We generally do not have long-term contracts or
+arrangements with our vendors to guarantee the av
+CHUNK  We regard our trademarks, service marks, copyrights, patents, domain names, trade dress, trade secrets, proprietary
+technologies, and similar intellectual property as critical to o
+CHUNK  infrastructure, fulfillment, and other expense categories;
+
+      •    availability of and increases in the prices of transportation (including fuel), resources such as land, water
+Retrieved 20 chunks.
+  [1] sim=0.6642 meta={'page': 18, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Board of Directors', 'chunk_index': 51}
+  [2] sim=0.6358 meta={'page': 23, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'like.', 'chunk_index': 71}
+  [3] sim=0.6002 meta={'page': 24, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'workforce.', 'chunk_index': 75}
+  [4] sim=0.5817 meta={'page': 27, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': None, 'chunk_index': 88}
+  [5] sim=0.5639 meta={'page': 20, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': None, 'chunk_index': 61}
+  [6] sim=0.5587 meta={'page': 19, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'plan or execute new strategies, which could harm our business or damage our reputation.', 'chunk_index': 54}
+  [7] sim=0.5436 meta={'page': 19, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'plan or execute new strategies, which could harm our business or damage our reputation.', 'chunk_index': 55}
+  [8] sim=0.5351 meta={'page': 14, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'AMAZON.COM, INC.', 'chunk_index': 38}
+  [9] sim=0.5326 meta={'page': 20, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': None, 'chunk_index': 58}
+  [10] sim=0.5257 meta={'page': 28, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'product liability.', 'chunk_index': 91}
+  [11] sim=0.5223 meta={'page': 19, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'plan or execute new strategies, which could harm our business or damage our reputation.', 'chunk_index': 56}
+  [12] sim=0.5222 meta={'page': 27, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': None, 'chunk_index': 87}
+  [13] sim=0.5161 meta={'page': 24, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'workforce.', 'chunk_index': 76}
+  [14] sim=0.5111 meta={'page': 22, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'including outside the U.S.;', 'chunk_index': 68}
+  [15] sim=0.5098 meta={'page': 25, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'ventures with additional companies. These transactions involve risks such as:', 'chunk_index': 81}
+  [16] sim=0.5093 meta={'page': 21, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'trademarks and other proprietary rights.', 'chunk_index': 62}
+  [17] sim=0.5086 meta={'page': 26, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'We Are Subject to Payments-Related Risks', 'chunk_index': 84}
+  [18] sim=0.5018 meta={'page': 71, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Suppliers', 'chunk_index': 229}
+  [19] sim=0.4949 meta={'page': 16, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'Competition', 'chunk_index': 45}
+  [20] sim=0.4942 meta={'page': 22, 'year': 2024, 'source': '2024_Amazon.pdf', 'company': 'Amazon', 'section': 'including outside the U.S.;', 'chunk_index': 67}
+
+================================================================================
+TOTAL UNIQUE CHUNKS (before company filter): 173
+================================================================================
+COMPANY FILTER: 173 → 60 chunks for 'Flipkart'
+  + coverage: query 1 added chunk_index=1187
+  + coverage: query 2 added chunk_index=1220
+  + coverage: query 3 added chunk_index=1438
+  + coverage: query 4 added chunk_index=340
+  + coverage: query 5 added chunk_index=69
+  + coverage: query 6 added chunk_index=222
+  + coverage: query 7 added chunk_index=1242
+  + coverage: query 8 added chunk_index=800
+  + coverage: query 9 added chunk_index=1038
+  + priority: added chunk_index=27
+  + neighbor of 333: added chunk_index=332
+  + neighbor of 79: added chunk_index=78
+  + neighbor of 67: added chunk_index=66
+  + neighbor of 1435: added chunk_index=1434
+  + neighbor of 1187: added chunk_index=1188
+  + neighbor of 1220: added chunk_index=1221
+  + neighbor of 1242: added chunk_index=1243
+  + neighbor of 800: added chunk_index=801
+  + neighbor of 1038: added chunk_index=1039
+  [reorder] 5 priority chunks moved to front
+
+SELECTED CHUNKS (post-selection): 25
+Selected chunk_index values: 67, 339, 68, 69, 27, 333, 79, 951, 72, 948, 1435, 140, 1437, 939, 1187, 1220, 1438, 340, 222, 1242, 800, 1038, 332, 78, 66
+
+FINAL CONTEXT SIZE: 13,695 characters
+
+Building financial extraction prompt...
+
+Sending retrieved context to Groq...
+Groq response received.
+EXTRACTED JSON {"Revenue": 179073, "Net Income": -23283, "Operating Income": -23283, "Cash Flow from Operating Activities": null, "Total Assets": 106045, "Total Liabilities": 111669, "Top Risk Factors": null, "Top Growth Drivers": ["Marketplace services increased to 77506M", "Advertisement services increased to 63170M", "Logistic services decreased to 42245M"]}
