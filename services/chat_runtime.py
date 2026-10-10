@@ -1,4 +1,4 @@
-﻿"""Startup warmup and dependency readiness without importing the KPI pipeline."""
+"""Startup warmup and dependency readiness without importing the KPI pipeline."""
 import asyncio
 import logging
 import os
@@ -35,46 +35,43 @@ _embeddings_singleton = None
 
 
 class Embeddings:
+    """Embedding provider backed by the Cohere API.
+
+    Uses embed-english-light-v3.0, which returns 384-dim vectors - the same
+    dimension the previous local sentence-transformers model produced.
+    Vectors themselves differ, so all documents must be re-embedded after
+    switching (see reembed_all_documents.py).
+    """
+
     def __init__(self):
-        from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer(
-            os.getenv('EMBEDDING_MODEL', 'sentence-transformers/all-MiniLM-L6-v2')
-        )
+        import cohere
+        key = os.getenv("COHERE_API_KEY")
+        if not key:
+            raise RuntimeError("COHERE_API_KEY is missing")
+        self._client = cohere.Client(key)
+        self._model = os.getenv("EMBEDDING_MODEL", "embed-english-light-v3.0")
 
     def embed_query(self, text):
-        return self.model.encode(text, normalize_embeddings=True).tolist()
+        response = self._client.embed(
+            texts=[text],
+            model=self._model,
+            input_type="search_query",
+        )
+        return list(response.embeddings[0])
 
     def embed_documents(self, texts):
-        return self.model.encode(texts, normalize_embeddings=True).tolist()
-
+        response = self._client.embed(
+            texts=list(texts),
+            model=self._model,
+            input_type="search_document",
+        )
+        return [list(v) for v in response.embeddings]
 
 def get_embeddings():
-    """Return the shared Embeddings instance, constructing it on first call.
-
-    Prefers the model already loaded at boot time by api.main (main thread,
-    before uvicorn / ingestion threads start) — this avoids GIL starvation
-    from the ingestion pipeline blocking torch init.
-    """
+    """Return the shared Embeddings instance, constructing it on first call."""
     global _embeddings_singleton
-    if _embeddings_singleton is not None:
-        return _embeddings_singleton
-
-    # Try to reuse the boot-time model from api.main.
-    try:
-        import api.main as _api_main
-        boot_model = getattr(_api_main, "_BOOT_MODEL", None)
-        if boot_model is not None:
-            instance = Embeddings.__new__(Embeddings)
-            instance.model = boot_model
-            _embeddings_singleton = instance
-            log.info('warm_embeddings: reused boot-time model')
-            return _embeddings_singleton
-        else:
-            log.warning('warm_embeddings: boot model was None; loading fresh')
-    except Exception as exc:
-        log.warning('warm_embeddings: could not reuse boot model (%s); loading fresh', exc)
-
-    _embeddings_singleton = Embeddings()
+    if _embeddings_singleton is None:
+        _embeddings_singleton = Embeddings()
     return _embeddings_singleton
 
 def check_database():

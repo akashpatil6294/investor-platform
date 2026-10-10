@@ -1,4 +1,4 @@
-﻿# Use Windows' trusted root certificates for outbound HTTPS clients.
+# Use Windows' trusted root certificates for outbound HTTPS clients.
 # This keeps TLS verification enabled while supporting the system CA store.
 import truststore
 
@@ -72,21 +72,6 @@ for _name in (
     'vectorstore.supabase_vectorstore',
 ):
     logging.getLogger(_name).setLevel(logging.INFO)
-import os as _os
-import time as _time
-_boot_t0 = _time.time()
-try:
-    print(f"[BOOT] importing sentence_transformers...", flush=True)
-    from sentence_transformers import SentenceTransformer as _BootstrapST
-    print(f"[BOOT]   import OK in {_time.time()-_boot_t0:.2f}s", flush=True)
-    _boot_t1 = _time.time()
-    _BOOT_MODEL = _BootstrapST(
-        _os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
-    )
-    print(f"[BOOT]   model loaded in {_time.time()-_boot_t1:.2f}s", flush=True)
-except Exception as _e:
-    print(f"[BOOT]   FAILED: {_e!r}", flush=True)
-    _BOOT_MODEL = None
 app = FastAPI(
     lifespan=lifespan,
     title="Investor Platform API",

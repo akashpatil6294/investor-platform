@@ -9,3 +9,29 @@ __pycache__/
 *.zip
 tmp/
 node_modules/
+# Runtime data - not source
+data/raw_pdfs/
+data/markdown/
+
+# Backups
+*.bak
+*.py.bak
+
+# Local test artifacts
+test_db.py
+test_extract.py
+check_tesla.py
+check_catalog.py
+backfill_metric_sources.py
+fix_boot_memory.py
+fix_get_embeddings.py
+fix_hf_token.py
+fix_source_files.py
+apply_chat_patch.py
+apply_chat_patch_v2.py
+patch_embeddings_cohere.py
+update_env_cohere.py
+reembed_all_documents.py
+remove_flipkart.py
+docs/chat-eval-latest.md
+docs/flipkart-page-*.png

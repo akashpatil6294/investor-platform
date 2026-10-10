@@ -21,3 +21,4 @@ html2text
 httpx
 pyyaml>=6
 pytest
+cohere>=5.0
