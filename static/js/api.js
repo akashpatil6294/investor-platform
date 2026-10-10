@@ -21,9 +21,10 @@ window.API = (() => {
       throw e;
     } finally { clearTimeout(timer); }
   }
-  async function stream(body, onEvent) {
+  async function stream(body, onEvent, signal) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
+    if (signal) signal.addEventListener('abort', () => controller.abort(), {once:true});
     let received = false;
     try {
       const response = await fetch('/api/chat/stream', {method:'POST',headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal});
@@ -51,12 +52,25 @@ window.API = (() => {
       }
       if (!done) throw Object.assign(new Error('The answer stream ended early. Please retry.'), {code:'stream_interrupted', retryable:true});
     } catch (e) {
-      if (e.name === 'AbortError') throw Object.assign(new Error('The assistant exceeded 60 seconds. Please retry.'), {code:'timeout',retryable:true});
+      if (e.name === 'AbortError') throw Object.assign(new Error('Answer stopped.'), {code:'stopped', retryable:true});
       if (e instanceof TypeError) throw Object.assign(new Error(received ? 'Connection lost during the answer. Please retry.' : 'Cannot connect to the assistant. Please retry.'), {code:'network',retryable:true});
       throw e;
     } finally { clearTimeout(timer); }
   }
-  return {request, stream, getHealth:()=>request('/api/ready',{acceptError:true,timeout:10000}),
+  const DESCRIPTIONS = {
+    rate_limited: 'Too many questions right now. Wait a moment and retry.',
+    model_busy: 'The model is busy. Retry in a moment.',
+    model_rate_limited: 'The model provider is rate limiting. Retry shortly.',
+    timeout: 'The assistant took too long. Please retry.',
+    not_configured: 'The assistant has no working model configured. Check the server settings.',
+    stream_interrupted: 'The answer was interrupted. Retry for a complete answer.',
+    network: 'Cannot reach the server. Check that the API is running.',
+    stopped: 'Answer stopped.',
+  };
+  return {request, stream,
+    getHealth:()=>request('/api/ready',{acceptError:true,timeout:10000}),
+    getCompanies:async()=>{const p=await request('/api/companies');return {companies:p.companies||[]};},
     getMetrics:async()=>{const p=await request('/api/metrics');return {rows:p.data||[]};},
-    describeError:e=>e.message||'Something went wrong. Please retry.'};
+    sendFeedback:async(payload)=>request('/api/chat/feedback',{method:'POST',body:JSON.stringify(payload)}),
+    describeError:e=>DESCRIPTIONS[e.code]||e.message||'Something went wrong. Please retry.'};
 })();

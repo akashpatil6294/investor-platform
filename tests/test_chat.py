@@ -36,6 +36,7 @@ def test_no_match_never_leaks(monkeypatch):
     assert chat.sources_for('risk',['Apple'],2024)==[]
 
 def test_chat_mocked_gemini_and_retriever(monkeypatch):
+    monkeypatch.setattr(chat, "get_metrics", lambda: [])
     class Retriever:
         def retrieve(self,*a,**kw):return [{'content':'Supplier concentration is a risk.', 'company':'Apple','year':2024,'metadata':{'source':'2024_Apple.md','page':12}}]
     class Models:
@@ -57,6 +58,7 @@ def test_limits():
 
 def test_comparison_and_yoy():
     rows={('Apple',2024):{'revenue':100,'operating_income':30},('Microsoft',2024):{'revenue':200,'operating_income':80},('Apple',2023):{'revenue':80}}
+    for row in rows.values(): row.update(currency='USD',unit='million',basis='consolidated')
     lookup=lambda c,y:rows.get((c,y))
     assert '10.00 percentage points below' in numeric_answer('Apple vs Microsoft operating margin',['Apple','Microsoft'],2024,lookup)
     assert '+25.00%' in numeric_answer('revenue YoY',['Apple'],2024,lookup)

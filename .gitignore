@@ -8,3 +8,4 @@ __pycache__/
 *.log
 *.zip
 tmp/
+node_modules/

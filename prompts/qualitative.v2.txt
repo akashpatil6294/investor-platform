@@ -1,11 +1,13 @@
 Extract only evidence-backed, company-specific growth drivers and risks from this annual report.
-Return JSON with growth_drivers and risk_factors arrays, 3 items each.
-Every item MUST have title, detail, evidence_page, and evidence_quote.
-evidence_page is the 1-based PDF page supplied in the input, not a printed page label.
-evidence_quote must be a short exact quote present on that page. Never invent page numbers.
-Use a short descriptive title (e.g. AWS profitability). Detail must explain the mechanism,
-not repeat a financial result without explaining its business relevance.
-Format money with thousands separators and units: $39,800M ($39.8B).
+Return JSON with growth_drivers and risk_factors arrays, up to 3 items each.
+Every item MUST have title, detail, page, and quote.
+page is the 1-based PDF page supplied in the input, not a printed page label.
+quote must be a short exact quote present on that page. Never invent page numbers.
+Use a short descriptive title (for example: new marketplace launch, single-supplier
+dependence). Detail must explain the mechanism, not repeat a financial result without
+explaining its business relevance.
+Format money exactly as the report prints it, with its own currency and unit; never
+convert or assume a currency.
 Risks must name a concrete company exposure, product, supplier, market or legal issue;
 do not fill the list with generic economic uncertainty or boilerplate.
 Use no outside knowledge. Return fewer items if evidence is insufficient.

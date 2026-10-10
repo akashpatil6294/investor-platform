@@ -1,6 +1,6 @@
 fastapi==0.136.3
 uvicorn==0.35.0
-pydantic==2.11.7
+pydantic>=2.12.5,<3
 python-dotenv==1.1.1
 sqlalchemy==2.0.50
 psycopg2-binary==2.9.10
@@ -19,4 +19,5 @@ beautifulsoup4
 lxml
 html2text
 httpx
+pyyaml>=6
 pytest

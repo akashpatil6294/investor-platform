@@ -3,7 +3,7 @@ import re
 _FRIENDLY_GREETING = 'Ask about revenue, profitability, cash flow, risks or growth drivers in the annual reports.'
 
 def _is_greeting(question):
-    return bool(re.fullmatch(r'\s*(hi|hello|hey|thanks|thank you|help)[!.?]*\s*', question, re.I))
+    return bool(re.fullmatch(r'\s*(hi+|hello+|hey+|thanks+|thank you+|namaste|greetings|good (morning|afternoon|evening))[!.?]*\s*', question, re.I))
 
 def _expand_short_query(question, company, year):
     normalized = re.sub(r'[^\w\s]', '', question.lower()).strip()

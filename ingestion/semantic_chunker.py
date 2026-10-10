@@ -99,16 +99,9 @@ def read_markdown(markdown_file: str) -> str:
 # chunks. This keeps individual table rows retrievable.
 # ============================================================
 
-def chunk_markdown(
-    markdown_file: str,
-    embeddings: LocalEmbeddings = None,  # kept for API compat
-) -> list[Document]:
-
-    markdown_content = read_markdown(markdown_file)
-
-    print("Creating chunker...")
-
-    splitter = RecursiveCharacterTextSplitter(
+def get_text_splitter() -> "RecursiveCharacterTextSplitter":
+    """The deterministic splitter used both for flat files and per-page."""
+    return RecursiveCharacterTextSplitter(
         chunk_size=800,
         chunk_overlap=150,
         length_function=len,
@@ -121,6 +114,18 @@ def chunk_markdown(
         ],
         is_separator_regex=False,
     )
+
+
+def chunk_markdown(
+    markdown_file: str,
+    embeddings: LocalEmbeddings = None,  # kept for API compat
+) -> list[Document]:
+
+    markdown_content = read_markdown(markdown_file)
+
+    print("Creating chunker...")
+
+    splitter = get_text_splitter()
 
     print("Generating chunks...")
 

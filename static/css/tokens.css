@@ -1,2 +1,44 @@
-:root{color-scheme:light;--bg:#f5f4f0;--surface:#fffefa;--panel:#eeede8;--text:#232826;--muted:#626862;--line:#d5d8d0;--accent:#325e51;--accent-soft:#e6ede5;--positive:#22603e;--negative:#a33c37;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s6:24px;--s8:32px;--s12:48px;--radius:6px;--ui:"Inter Tight","Segoe UI",sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
-[data-theme=dark]{color-scheme:dark;--bg:#1c201e;--surface:#232825;--panel:#292f2b;--text:#eceee8;--muted:#a8b1a9;--line:#414941;--accent:#a8c7b5;--accent-soft:#304438;--positive:#93d6aa;--negative:#f2a09a}
+/* Design tokens: one restrained palette, one accent, colour used for meaning.
+   Light theme is warm paper; dark theme is designed, not inverted. */
+
+:root {
+  color-scheme: light;
+  --bg: #f5f2ea;
+  --surface: #fdfbf5;
+  --panel: #efeadd;
+  --text: #211d16;
+  --muted: #6f6759;
+  --line: #ded7c6;
+  --line-strong: #c9c0aa;
+  --accent: #8a3324;
+  --accent-ink: #fdfbf5;
+  --accent-soft: #f3e2dc;
+  --positive: #2f6b4a;
+  --negative: #9c3325;
+  --warning: #8a6d1f;
+
+  --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  --ui: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px;
+  --s8: 48px; --s10: 80px;
+  --radius: 3px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #171410;
+  --surface: #1f1b15;
+  --panel: #262117;
+  --text: #ebe4d3;
+  --muted: #a79e8b;
+  --line: #373124;
+  --line-strong: #4a4231;
+  --accent: #d09a72;
+  --accent-ink: #211d16;
+  --accent-soft: #332a20;
+  --positive: #86b89b;
+  --negative: #d99689;
+  --warning: #cfae62;
+}

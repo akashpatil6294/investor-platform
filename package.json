@@ -1,0 +1,14 @@
+{
+  "name": "investor-platform-frontend-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vitest + jsdom tests for the Investor Platform dashboard",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0",
+    "vitest": "^2.1.0"
+  }
+}
