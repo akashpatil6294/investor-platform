@@ -12,3 +12,9 @@ def health():
 def ready():
     result = readiness()
     return JSONResponse(result, status_code=200 if result['ready'] else 503)
+
+
+@router.get("/healthz")
+def healthz():
+    """Liveness probe: always 200 regardless of dependency state."""
+    return {"ok": True}
